@@ -4,17 +4,5 @@
  * Used by: src/pages/index.astro, src/pages/destinations/index.astro
  */
 export const destinationVideoMap: Record<string, string> = {
-  'rio-de-janeiro': '',
-  'sao-paulo': '',
-  salvador: '',
-  florianopolis: '',
-  'iguazu-falls': '',
-  brasilia: '',
-  manaus: '',
-  recife: '',
-  paraty: '',
-  'ouro-preto': '',
-  jericoacoara: '',
-  'fernando-de-noronha': '',
-  bonito: '',
+  // No destination videos yet — add as video content is created
 } as const;

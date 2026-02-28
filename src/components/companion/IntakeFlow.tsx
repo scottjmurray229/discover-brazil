@@ -27,13 +27,13 @@ const COLORS = {
   gray600: '#6B7280',
 };
 
-const SAMPLE_PASTE = `Day 1 - Arrive Cebu, transfer to Moalboal
-Day 2 - Sardine run snorkeling, Kawasan Falls canyoneering
-Day 3 - Ferry to Bohol, Chocolate Hills, Tarsier Sanctuary
-Day 4 - Island hopping Balicasag & Virgin Island
-Day 5 - Ferry to Siquijor, Cambugahay Falls, Paliton Beach sunset
-Day 6 - Tubod Marine Sanctuary, Balete Tree, free afternoon
-Day 7 - Ferry to Dumaguete, fly home`;
+const SAMPLE_PASTE = `Day 1 - Arrive Rio de Janeiro, transfer to Copacabana
+Day 2 - Christ the Redeemer, Sugarloaf Cable Car, Lapa nightlife
+Day 3 - Fly to Iguazu Falls, Devil's Throat walkway
+Day 4 - Brazilian side of the falls, bird park
+Day 5 - Fly to Salvador, Pelourinho historic center
+Day 6 - Beaches of Itapuã, acarajé tasting, capoeira show
+Day 7 - Fly back to Rio, departure`;
 
 const ENRICHMENT_FEATURES = [
   { icon: '🧭', title: 'Real Directions' },
@@ -325,7 +325,7 @@ export default function IntakeFlow() {
         border: `1px solid ${COLORS.sandDark}`,
       }}>
         <div style={{ fontSize: 13, color: COLORS.deepNight, lineHeight: 1.6, fontStyle: 'italic' }}>
-          "We had zero signal on the ferry to Siquijor and the app had everything — directions, restaurant picks, even the right phrases. Felt like traveling with a local friend."
+          "We had zero signal in the Amazon lodge and the app had everything — directions, restaurant picks, even the right phrases. Felt like traveling with a local friend."
         </div>
         <div style={{ fontSize: 12, fontWeight: 700, color: COLORS.oceanTeal, marginTop: 8 }}>
           — Sarah & Mike, 7-day Central Europe trip
@@ -422,7 +422,7 @@ export default function IntakeFlow() {
         <textarea
           value={pasteText}
           onChange={(e) => setPasteText(e.target.value)}
-          placeholder={"Paste your itinerary here, or describe your trip...\n\nExamples:\n• Copy/paste from an email\n• \"5 days in Cebu and Bohol, want to snorkel and see Chocolate Hills\"\n• Day-by-day breakdown from a travel blog"}
+          placeholder={"Paste your itinerary here, or describe your trip...\n\nExamples:\n• Copy/paste from an email\n• \"5 days in Rio and Salvador, want to see Christ the Redeemer and Pelourinho\"\n• Day-by-day breakdown from a travel blog"}
           style={{
             width: '100%', minHeight: 200, padding: 16, borderRadius: 16,
             border: `1.5px solid ${pasteText ? COLORS.oceanTeal : '#E8E8EC'}`,
@@ -466,9 +466,9 @@ export default function IntakeFlow() {
     const filtered = filter === 'all'
       ? templates
       : templates.filter((t) => {
-          if (filter === 'visayas') return t.route.match(/Cebu|Bohol|Siquijor|Dumaguete/i);
-          if (filter === 'balkans') return t.route.match(/Balkans|Dubrovnik|Split|Belgrade/i);
-          if (filter === 'mindanao') return t.route.match(/Siargao|Davao/i);
+          if (filter === 'southeast') return t.route.match(/Rio|São Paulo|Paraty|Ouro Preto/i);
+          if (filter === 'northeast') return t.route.match(/Salvador|Recife|Jericoacoara|Fernando/i);
+          if (filter === 'south') return t.route.match(/Florianópolis|Iguazu|Bonito/i);
           return true;
         });
 
@@ -480,7 +480,7 @@ export default function IntakeFlow() {
         </div>
 
         <div style={{ display: 'flex', gap: 8, marginBottom: 16, overflowX: 'auto' as const }}>
-          {['all', 'visayas', 'palawan', 'mindanao'].map((f) => (
+          {['all', 'southeast', 'northeast', 'south'].map((f) => (
             <Pill key={f} active={filter === f} onClick={() => setFilter(f)}>
               {f.charAt(0).toUpperCase() + f.slice(1)}
             </Pill>
@@ -839,9 +839,9 @@ export default function IntakeFlow() {
         <>
           <div style={{ fontSize: 14, fontWeight: 800, color: COLORS.deepNight, marginBottom: 10 }}>Everything included:</div>
           {[
-            { icon: '🧭', title: 'Real Directions', desc: "Not Google Maps pins — actual 'take the Ceres bus, tell the conductor Panagsama' directions" },
+            { icon: '🧭', title: 'Real Directions', desc: "Not Google Maps pins — actual 'take the metro to Copacabana, exit at Siqueira Campos' directions" },
             { icon: '🌅', title: 'Sunrise/Sunset', desc: 'Golden hour times with best viewpoints matched to your daily locations' },
-            { icon: '💬', title: 'Local Phrases', desc: 'Cebuano & Tagalog phrases tuned to your destinations with pronunciation' },
+            { icon: '💬', title: 'Local Phrases', desc: 'Portuguese phrases tuned to your destinations with pronunciation' },
             { icon: '📞', title: 'Key Contacts', desc: 'Emergency numbers, hospitals, trusted local drivers & guides for your specific route' },
             { icon: '🎒', title: 'Smart Packing', desc: 'Checklist auto-generated from your activities — canyoneering adds water shoes' },
             { icon: '💰', title: 'Budget Tracker', desc: 'Log expenses, see typical costs, convert currency — all offline' },
