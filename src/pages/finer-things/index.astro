@@ -1,0 +1,884 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import EmailCapture from '../../components/EmailCapture.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'The Finer Things', url: '/finer-things/' },
+];
+
+const pageTitle = 'The Finer Things — Luxury Brazil Hotels, Fine Dining & Premium Experiences 2026';
+const pageDescription = 'Copacabana Palace elegance, world-class dining in Sao Paulo, Amazon luxury lodges, Fernando de Noronha exclusivity, Iguazu Falls helicopters, and Carnival VIP — Brazil at its finest.';
+
+interface TopicSection {
+  id: string;
+  icon: string;
+  title: string;
+  gradient: string;
+  items: { label: string; text: string; link?: string }[];
+}
+
+const topics: TopicSection[] = [
+  {
+    id: 'hotels',
+    icon: '🏨',
+    title: 'Iconic Luxury Hotels',
+    gradient: 'linear-gradient(135deg, #1A2332 0%, #D4A574 100%)',
+    items: [
+      { label: 'Copacabana Palace (Rio de Janeiro)', link: '/destinations/rio-de-janeiro/', text: 'The Belmond Copacabana Palace has been the address in Rio since 1923 — a white art deco palace facing Copacabana Beach that\'s hosted everyone from Princess Diana to the Rolling Stones. The pool is the most photographed in South America. Rooms start at R$3,500 ($700 USD)/night in high season, suites from R$8,000 ($1,600 USD). The Cipriani restaurant serves Italian fine dining with a Rio twist, and the Pérgula poolside lunch is where Rio\'s elite come to see and be seen. Even if you don\'t stay, a cocktail at the bar is worth the walk through the lobby.' },
+      { label: 'Hotel Fasano (São Paulo)', link: '/destinations/sao-paulo/', text: 'The Fasano is São Paulo\'s definitive luxury hotel — a Rogerio Fasano property with 1930s glamour, impeccable service, and one of the best hotel restaurants in the world. Rooms from R$2,500 ($500 USD)/night. The Fasano restaurant downstairs is an institution — classic Italian with São Paulo sophistication. The rooftop pool and bar overlook Jardins, the city\'s most elegant neighborhood. If you\'re only staying one night in São Paulo and want the best, this is it. The Baretto bar is a late-night destination for cocktails and live jazz.' },
+      { label: 'Boutique Hotels in Trancoso', text: 'Trancoso is Brazil\'s answer to Tulum before the crowds — a tiny village on the Bahia coast built around the Quadrado, a UNESCO-listed green square lined with colorful colonial houses. <strong>UXUA Casa Hotel</strong> is the flagship — hand-built casas (cottages) using reclaimed wood and local artisan techniques, R$4,000–8,000 ($800–1,600 USD)/night. <strong>Etnia Casa Hotel</strong> is the boutique alternative at R$1,500–3,000 ($300–600 USD). The restaurants along the Quadrado — Capim Santo and Silvana & Cia — serve fresh seafood with bare feet on sand floors. No brand names, no chains, just quiet Brazilian luxury.' },
+      { label: 'Fernando de Noronha Resorts', link: '/destinations/fernando-de-noronha/', text: 'Fernando de Noronha is Brazil\'s most exclusive destination — a volcanic archipelago 350km off the northeast coast with a daily visitor cap and UNESCO World Heritage protection. <strong>Pousada Maravilha</strong> is the top address — cliffside bungalows overlooking Baia do Sueste, from R$5,000 ($1,000 USD)/night. <strong>Pousada do Zé Maria</strong> is the beloved mid-luxury option, famous for its Thursday night seafood buffet. Expect to pay R$200 ($40 USD) per person in environmental preservation fees just to access the island. The snorkeling and diving here are the best in Brazil — period.' },
+      { label: 'Amazon Luxury Lodges', link: '/destinations/manaus/', text: 'The Amazon doesn\'t have to mean roughing it. <strong>Anavilhanas Jungle Lodge</strong> sits on the banks of the Rio Negro near the Anavilhanas archipelago — bungalows with AC, a pool overlooking the river, and guided excursions that include piranha fishing, caiman spotting, and jungle hikes. R$2,500–4,500 ($500–900 USD)/night all-inclusive. <strong>Cristalino Lodge</strong> in Alta Floresta (southern Amazon) is the eco-luxury pioneer — canopy tower access, 600+ bird species, and wildlife encounters that few places on Earth can match. R$3,000–5,000 ($600–1,000 USD)/night. These lodges prove you can explore the world\'s largest rainforest without sacrificing comfort.' },
+    ],
+  },
+  {
+    id: 'dining',
+    icon: '🍽️',
+    title: 'World-Class Dining',
+    gradient: 'linear-gradient(135deg, #4C1D95 0%, #E8654A 100%)',
+    items: [
+      { label: 'D.O.M. (São Paulo)', link: '/destinations/sao-paulo/', text: 'Alex Atala\'s D.O.M. redefined Brazilian gastronomy — Amazonian ingredients elevated to fine dining. Tucupi broth, priprioca (a native root), and pirarucu (Amazon river fish) appear on a tasting menu that reads like a love letter to Brazilian biodiversity. R$800–1,200 ($160–240 USD)/person for the full tasting with wine pairing. Reservations required 2–3 weeks ahead. The restaurant occupies a renovated townhouse in Jardins and the atmosphere is refined without being stuffy. This is the restaurant that put Brazilian cuisine on the global stage.' },
+      { label: 'A Casa do Porco (São Paulo)', link: '/destinations/sao-paulo/', text: 'Ranked among the World\'s 50 Best Restaurants — and it\'s a pork restaurant. Jefferson and Janaina Rueda celebrate every cut of the pig with creativity and irreverence. The porco San Zé (a crispy pork belly that\'s become iconic) is worth the trip to São Paulo alone. R$200–400 ($40–80 USD)/person. No reservations — they use a queue system, and the wait can be 1–2 hours on weekends. Worth it. The vibe is loud, joyful, and unapologetically Brazilian. Get the degustação (tasting menu) if the table agrees.' },
+      { label: 'Oro (Rio de Janeiro)', link: '/destinations/rio-de-janeiro/', text: 'Felipe Bronze\'s Oro is Rio\'s finest — a 32-seat restaurant in Leblon serving a Brazilian tasting menu that pulls from every region of the country. R$600–900 ($120–180 USD)/person. The kitchen is open and the plating is meticulous, but the dishes are grounded in real Brazilian flavors — moqueca deconstructed, farofa reimagined, and tropical fruits you\'ve never heard of. Two Michelin stars and a chef who competes at the highest level. Book 2–3 weeks ahead.' },
+      { label: 'Manu (Curitiba)', text: 'Manu Buffara\'s namesake restaurant in Curitiba — one of Brazil\'s rising culinary stars. She farms her own ingredients on a plot outside the city and the menu reflects what\'s growing that week. Tasting menu R$500–800 ($100–160 USD)/person. Curitiba isn\'t on most tourist itineraries, but food lovers are making the detour specifically for Manu. The restaurant seats 30 and feels personal — you can see Manu working the pass from most tables.' },
+      { label: 'Rio Rooftop Bars', link: '/destinations/rio-de-janeiro/', text: 'Rio\'s rooftop bar scene combines the city\'s dramatic topography with cocktail culture. <strong>Bar Astor</strong> in Ipanema is the classic — craft caipirinhas and a crowd that spills onto the sidewalk. <strong>Cielo Rio</strong> at the top of the Yoo2 hotel has Sugar Loaf views and house DJs. <strong>Fairmont Copacabana\'s rooftop</strong> offers panoramic beach views and premium cocktails at R$60–90 ($12–18 USD). For the most dramatic view, <strong>Bar da Laje</strong> in Vidigal favela overlooks the entire Zona Sul coastline — the sunset here is legendary, and caipirinhas are R$30 ($6 USD).' },
+      { label: 'Premium Caipirinha Experiences', text: 'The caipirinha is Brazil\'s national cocktail — cachaça, lime, sugar — but the premium versions elevate it to an art form. Artisanal cachaça producers like <strong>Leblon</strong>, <strong>Avuá</strong>, and <strong>Novo Fogo</strong> make spirits aged in native Brazilian woods (amburana, balsamo, jequitiba) that add complexity no industrial cachaça can match. A premium cachaça bottle runs R$80–200 ($16–40 USD). The best cachaça bars: <strong>Canastra</strong> in São Paulo (200+ labels), <strong>Bar do Mineiro</strong> in Rio\'s Santa Teresa for traditional pours, and <strong>Academia da Cachaça</strong> in Leblon for flights of aged expressions. Tasting note: if you think cachaça tastes like gasoline, you haven\'t tried a good one.' },
+    ],
+  },
+  {
+    id: 'noronha',
+    icon: '🏝️',
+    title: 'Fernando de Noronha Exclusives',
+    gradient: 'linear-gradient(135deg, #064E3B 0%, #0D7377 50%, #06B6D4 100%)',
+    items: [
+      { label: 'Why Noronha Is Special', link: '/destinations/fernando-de-noronha/', text: 'Fernando de Noronha limits visitors to 500 per day — making it one of the most exclusive island destinations in the world. The beaches are consistently ranked among the planet\'s best: Baia do Sancho (a cliff-encircled bay with crystal water), Praia do Leão (sea turtle nesting site), and Baia dos Porcos (volcanic rock pools). The water visibility exceeds 40 meters. Spinner dolphins gather in the hundreds in Baia dos Golfinhos at dawn. There are no high-rises, no all-inclusive resorts, and no mass tourism. The price of entry is the point — it keeps the place pristine.' },
+      { label: 'Diving & Snorkeling', link: '/destinations/fernando-de-noronha/', text: 'Noronha has the best diving in Brazil — warm water (26–28°C), 40m+ visibility, and marine life density that rivals the Galápagos. Sharks (reef and nurse), sea turtles, rays, and massive schools of fish are standard on every dive. The Corveta Ipiranga wreck is the signature dive — a deliberately sunk naval ship now covered in coral. Diving costs R$600–900 ($120–180 USD) for two tanks with an operator. Even snorkeling from shore delivers encounters with sea turtles and rays in waist-deep water. The environmental fee (R$200/$40 USD per person) is mandatory and funds conservation.' },
+      { label: 'Boat Tours & Private Charters', link: '/destinations/fernando-de-noronha/', text: 'The standard boat tour circles the island and includes snorkeling stops and dolphin watching — R$250–350 ($50–70 USD)/person on a shared vessel. Private charters run R$3,000–6,000 ($600–1,200 USD) for a half-day and let you set the pace — anchor at empty bays, dive where you want, and avoid the group schedule. The sunset sail around the Morro Dois Irmaos (Two Brothers rock formation) is the most photogenic experience on the island. Book private charters through your pousada — they have the local connections.' },
+      { label: 'Getting There', text: 'Flights from Recife (1h15m) and Natal (1h) are the only commercial routes — operated by Azul and GOL. Expect R$1,500–3,000 ($300–600 USD) round trip, more in peak season (December–February). Book flights early — there are only a few departures per day and they fill up. You\'ll also need to pay the environmental preservation tax (Taxa de Preservação Ambiental) online before arrival — R$100 ($20 USD)/day, which adds up on longer stays. Worth every cent for what you get.' },
+    ],
+  },
+  {
+    id: 'iguazu',
+    icon: '💧',
+    title: 'Iguazu Falls Premium Experiences',
+    gradient: 'linear-gradient(135deg, #0E4D5C 0%, #059669 100%)',
+    items: [
+      { label: 'Helicopter Tours', link: '/destinations/iguazu-falls/', text: 'The most dramatic way to see Iguazu Falls — a helicopter flight over the entire system of 275 waterfalls spread across nearly 3km of cliff face. The 10-minute flight costs R$500–700 ($100–140 USD)/person and operates from the Brazilian side (Helisul Taxi Aereo). The moment the helicopter banks over Devil\'s Throat — the largest single waterfall, 80m high — is genuinely jaw-dropping. Photos from above show the scale that\'s impossible to grasp from the ground. Book for morning when the mist creates rainbows.' },
+      { label: 'Belmond Hotel das Cataratas', link: '/destinations/iguazu-falls/', text: 'The only hotel inside Iguazu National Park on the Brazilian side — meaning you have access to the falls before the park opens and after it closes to day visitors. A pink colonial building surrounded by tropical gardens, with a pool and spa. Rooms from R$2,500 ($500 USD)/night. The sunset access alone is worth the premium — watching the falls in golden light with no crowds is a different experience entirely. Dinner at the Ipê Grill restaurant overlooks the gardens with the sound of the falls as your soundtrack.' },
+      { label: 'Macuco Safari Boat Ride', link: '/destinations/iguazu-falls/', text: 'The signature Iguazu adrenaline experience — a zodiac boat that drives directly into the spray zone beneath the falls. You will get completely soaked. R$300–400 ($60–80 USD)/person. The approach includes a jungle drive and a short hike, then the boat charges into the curtain of water beneath Salto Três Mosqueteiros. Waterproof bags for your phone are essential (R$20 at the entrance). This is the moment everyone remembers from Iguazu — the raw power of the water from 20 meters away.' },
+      { label: 'Argentine Side (Full Day)', link: '/destinations/iguazu-falls/', text: 'The Argentine side of the falls (accessed from Puerto Iguazú) has the superior trail system — walkways that take you directly above and beside the falls, including the terrifying catwalk over Devil\'s Throat. A full day on the Argentine side with a guide runs R$400–600 ($80–120 USD) including transport and park entry. The lower circuit gets you to eye level with several waterfalls. Combining both sides (Brazilian panorama + Argentine immersion) is the complete Iguazu experience — budget 2 full days.' },
+      { label: 'Bird Park (Parque das Aves)', link: '/destinations/iguazu-falls/', text: 'Adjacent to the Brazilian park entrance, the Parque das Aves is a conservation-focused aviary with 1,300+ birds from 130 species — toucans, macaws, harpy eagles, and birds of paradise in walk-through aviaries. R$80 ($16 USD) admission. It\'s educational, beautifully maintained, and the toucans will land on your shoulder. Not strictly "luxury," but the private behind-the-scenes tour (R$250/$50 USD) with a biologist is — you visit the breeding center and rehabilitation facility. A perfect morning before the falls.' },
+    ],
+  },
+  {
+    id: 'carnival',
+    icon: '🎭',
+    title: 'Carnival VIP Experiences',
+    gradient: 'linear-gradient(135deg, #9D174D 0%, #E8654A 50%, #FB923C 100%)',
+    items: [
+      { label: 'Sambadrome VIP Boxes', link: '/destinations/rio-de-janeiro/', text: 'The Rio Carnival Sambadrome parade is the greatest show on earth — 12 samba schools competing with 3,000–4,000 performers each, massive floats, and choreography that takes a year to prepare. VIP boxes (camarotes) on Sectors 5, 7, or 9 offer the best views and include food, drinks, and private facilities. R$3,000–8,000 ($600–1,600 USD)/person for the Special Group night (the main event, Sunday and Monday). The cheaper grandstand seats (R$300–800/$60–160 USD) are intense and fun but have no amenities. Book VIP boxes 2–3 months ahead — they sell out.' },
+      { label: 'Blocos (Street Parties)', link: '/destinations/rio-de-janeiro/', text: 'The blocos are the soul of Carnival — hundreds of street parties across Rio with live samba bands, costumes, and dancing that shuts down entire neighborhoods. They\'re free to attend and far more participatory than the Sambadrome. Standout blocos: <strong>Cordão da Bola Preta</strong> (2 million+ people, Centro), <strong>Bloco da Favorita</strong> (Copacabana, LGBTQ+-friendly), and <strong>Monobloco</strong> (the final Sunday closing party). The VIP bloco experience: some luxury hotels and travel companies offer guided bloco tours with security, costumes, and drinks included — R$500–1,500 ($100–300 USD). Smart for first-timers.' },
+      { label: 'Salvador Carnival', link: '/destinations/salvador/', text: 'Salvador\'s Carnival is louder, more participatory, and arguably more fun than Rio\'s — the music is axé (not samba), the trios elétricos (massive sound trucks) drive through the streets, and you dance behind them for hours. Camarote (VIP balcony) tickets in the Barra circuit cost R$1,000–3,000 ($200–600 USD)/night and include open bar and food. The abadá (group costume) gets you into roped-off blocos following specific trios elétricos — R$800–2,000 ($160–400 USD) for the full Carnival week. Salvador\'s Carnival is less spectacle, more participation — you\'re in it, not watching it.' },
+      { label: 'Carnival Planning', text: 'Carnival dates move annually (46 days before Easter) — 2026 dates are February 14–17. Book flights and hotels 4–6 months ahead. Hotel prices triple during Carnival week. A smart strategy: stay in an Airbnb in Santa Teresa or Leblon (R$1,000–3,000/$200–600 USD per night for a good apartment) instead of hotels. Bring earplugs for sleeping — the blocos start mid-morning and the music doesn\'t stop until dawn. Carry minimal cash, leave valuables at the hotel, and use a waterproof phone pouch. The heat and dancing mean you\'ll go through 4–5 liters of water per day — hydrate aggressively.' },
+    ],
+  },
+];
+---
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  pageType="destination"
+  breadcrumbs={breadcrumbs}
+>
+  <!-- Hero -->
+  <header class="ft-hero">
+    <div class="ft-hero-gradient"></div>
+    <div class="ft-hero-noise"></div>
+    <div class="ft-hero-content">
+      <h1 class="ft-hero-title">The Finer Things</h1>
+      <p class="ft-hero-subtitle">The Copacabana Palace at golden hour, world-ranked restaurants in Sao Paulo, luxury Amazon lodges where the jungle meets the river, Fernando de Noronha's exclusive beaches, helicopter flights over Iguazu Falls, and Carnival VIP boxes above the samba parade.</p>
+      <div class="ft-hero-meta">
+        <div class="ft-hero-meta-item">
+          <span class="ft-hero-meta-label">Topics</span>
+          <span class="ft-hero-meta-value">6</span>
+        </div>
+        <div class="ft-hero-meta-item">
+          <span class="ft-hero-meta-label">Luxury Hotels</span>
+          <span class="ft-hero-meta-value">8+</span>
+        </div>
+        <div class="ft-hero-meta-item">
+          <span class="ft-hero-meta-label">Fine Dining</span>
+          <span class="ft-hero-meta-value">6</span>
+        </div>
+      </div>
+    </div>
+    <div class="ft-scroll-hint">Scroll<br />&#8595;</div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="container-content">
+    <Breadcrumb items={breadcrumbs} />
+  </div>
+
+  <!-- Personal intro -->
+  <section class="ft-personal ft-reveal">
+    <div class="container-content">
+      <blockquote class="ft-personal-quote">
+        <p>Brazil does luxury differently. It's not about exclusivity for its own sake — it's about intensity. A dinner at D.O.M. isn't just a meal, it's a journey through every ecosystem in the Amazon. Fernando de Noronha isn't just a beach, it's what beaches were before the world discovered them. Carnival VIP doesn't mean watching from above — it means being inside the parade with better access. Even the caipirinhas have levels — the difference between industrial cachaca and a bottle aged in amburana wood is the difference between a cocktail and a revelation. Brazil's finer things always come with energy, color, and a beat.</p>
+        <cite>— Scott</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Quick Facts Strip -->
+  <section class="ft-quickfacts ft-reveal">
+    <div class="container-content">
+      <div class="ft-quickfacts-bar">
+        <div class="ft-quickfact">
+          <span class="ft-quickfact-label">Peak Season</span>
+          <span class="ft-quickfact-value">Dec–Mar</span>
+        </div>
+        <div class="ft-quickfact-divider"></div>
+        <div class="ft-quickfact">
+          <span class="ft-quickfact-label">Luxury Hotel</span>
+          <span class="ft-quickfact-value">R$2,500–8,000/nt</span>
+        </div>
+        <div class="ft-quickfact-divider"></div>
+        <div class="ft-quickfact">
+          <span class="ft-quickfact-label">Fine Dining</span>
+          <span class="ft-quickfact-value">R$200–1,200/pp</span>
+        </div>
+        <div class="ft-quickfact-divider"></div>
+        <div class="ft-quickfact">
+          <span class="ft-quickfact-label">Iguazu Heli</span>
+          <span class="ft-quickfact-value">R$500–700</span>
+        </div>
+        <div class="ft-quickfact-divider"></div>
+        <div class="ft-quickfact">
+          <span class="ft-quickfact-label">Tipping</span>
+          <span class="ft-quickfact-value">10%</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Nav -->
+  <section class="ft-quicknav ft-reveal">
+    <div class="container-content">
+      <div class="ft-quicknav-grid">
+        {topics.map((t) => (
+          <a href={`#${t.id}`} class="ft-quicknav-chip">
+            <span class="ft-quicknav-icon">{t.icon}</span>
+            <span class="ft-quicknav-label">{t.title.split(' ').slice(0, 2).join(' ')}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Topic Sections -->
+  {topics.map((topic) => (
+    <section class="ft-topic ft-reveal" id={topic.id}>
+      <div class="container-content">
+        <div class="ft-topic-header" style={`background: ${topic.gradient};`}>
+          <div class="ft-topic-header-inner">
+            <span class="ft-topic-icon">{topic.icon}</span>
+            <h2 class="ft-topic-title">{topic.title}</h2>
+            <span class="ft-topic-count">{topic.items.length} tips</span>
+          </div>
+        </div>
+
+        <div class="ft-tip-grid">
+          {topic.items.map((item) => (
+            <div class="ft-tip-card">
+              <h3 class="ft-tip-label">{item.label}</h3>
+              <p class="ft-tip-text" set:html={item.text} />
+              {item.link && (
+                <a href={item.link} class="ft-tip-link">Explore {item.label.split('(')[0].trim()} &rarr;</a>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <!-- Scott's Pro Tips -->
+  <section class="ft-protips ft-reveal">
+    <div class="container-content">
+      <div class="ft-protips-card">
+        <h2 class="ft-protips-heading">Scott's Pro Tips</h2>
+        <div class="scott-tips">
+          <ul>
+            <li><strong>Sao Paulo for Food:</strong> If you're serious about dining, spend at least 2–3 nights in Sao Paulo. The restaurant scene is the best in South America and arguably the most diverse in the world. D.O.M., A Casa do Porco, and Oro are the headliners, but the botecos (casual bars), Japanese-Brazilian fusion in Liberdade, and pizza joints are equally impressive. Budget R$300–500/day for dining well.</li>
+            <li><strong>Noronha Timing:</strong> Book Fernando de Noronha for September–November — water visibility peaks at 40m+, it's dry season, and it's before the December–February peak price surge. Flights from Recife are cheaper mid-week. The environmental fee (R$100/day) is non-negotiable, so factor it into your budget.</li>
+            <li><strong>Carnival Strategy:</strong> For first-timers, Rio Carnival offers the spectacle (Sambadrome) plus the street party (blocos). For repeat visitors or those who want to participate rather than watch, Salvador is the better choice. Either way, book 4+ months ahead and carry minimal valuables during festivities.</li>
+            <li><strong>Cachaca Education:</strong> Don't leave Brazil without visiting a proper cachaca bar. Canastra in Sao Paulo has 200+ labels and the bartenders will walk you through aged expressions. The difference between a R$15 industrial cachaca and a R$80 artisanal bottle aged in native wood is staggering. Bring a bottle home — it's the best souvenir in Brazil.</li>
+            <li><strong>Iguazu Strategy:</strong> Stay on the Brazilian side at Hotel das Cataratas for the sunset access, but spend a full day on the Argentine side for the up-close trail system. The helicopter tour operates from the Brazilian side only — book for morning when rainbows appear in the mist. Two full days minimum for the complete experience.</li>
+            <li><strong>Safety at Luxury Level:</strong> Use hotel-arranged transfers and Uber/99 instead of hailing cabs. Keep flashy jewelry and watches at the hotel during Carnival and bloco outings. Rio and Sao Paulo are big cities — the same street smarts you'd use in any major city apply here. The tourist zones (Zona Sul in Rio, Jardins in Sao Paulo) are well-policed and generally safe.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="ft-cta-section ft-reveal">
+    <div class="container-content">
+      <div class="ft-cta-card">
+        <h2 class="ft-cta-heading">Plan Your Luxury Brazil Trip</h2>
+        <p class="ft-cta-text">Tell our AI planner your dates and interests — it'll build a custom itinerary with the best hotels, dining, and premium experiences across Brazil.</p>
+        <a href="/plan/" class="ft-cta-button">Start Planning &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Email Capture -->
+  <div class="container-content ft-reveal" style="padding-bottom: var(--space-6);">
+    <EmailCapture
+      leadMagnet="Get Our Free Brazil Luxury Travel Guide"
+      description="Premium hotels, world-class dining, and exclusive experiences across Brazil — packed into one PDF."
+      bullets={[
+        'Top luxury hotels and boutique pousadas ranked',
+        'Complete Sao Paulo and Rio fine dining guide',
+        'Fernando de Noronha planning checklist',
+        'Carnival VIP booking strategy and timeline',
+      ]}
+      guideTag="pillar-finer-things"
+    />
+  </div>
+
+  <!-- Cross-links -->
+  <section class="ft-crosslinks ft-reveal">
+    <div class="container-content">
+      <h3 class="ft-crosslinks-heading">Explore More</h3>
+      <div class="ft-crosslinks-grid">
+        <a href="/cuisine/" class="ft-crosslink-card">
+          <span class="ft-crosslink-icon">&#127860;</span>
+          <span class="ft-crosslink-label">Brazilian Cuisine</span>
+          <span class="ft-crosslink-desc">Feijoada, churrasco, moqueca, and regional flavors</span>
+        </a>
+        <a href="/hiking/" class="ft-crosslink-card">
+          <span class="ft-crosslink-icon">&#127956;</span>
+          <span class="ft-crosslink-label">Hiking Guide</span>
+          <span class="ft-crosslink-desc">Chapada trails, Atlantic Forest, and mountain adventures</span>
+        </a>
+        <a href="/practical/" class="ft-crosslink-card">
+          <span class="ft-crosslink-icon">&#128218;</span>
+          <span class="ft-crosslink-label">Practical Guide</span>
+          <span class="ft-crosslink-desc">Visas, safety, transport, and Brazil travel essentials</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+</BaseLayout>
+
+<!-- Scroll Reveal Observer (uses ft-reveal/ft-visible to avoid Tailwind .visible conflict) -->
+<script>
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const ftRevealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('ft-visible');
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    );
+    document.querySelectorAll('.ft-reveal').forEach((el) => ftRevealObserver.observe(el));
+  } else {
+    document.querySelectorAll('.ft-reveal').forEach((el) => el.classList.add('ft-visible'));
+  }
+</script>
+
+<style>
+  /* ================================================================
+     HERO
+     ================================================================ */
+  .ft-hero {
+    position: relative;
+    min-height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 5rem var(--space-6) 60px;
+    overflow: hidden;
+  }
+
+  .ft-hero-gradient {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(135deg, #1A2332 0%, #059669 40%, #D4A574 100%);
+  }
+
+  .ft-hero-noise {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .ft-hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 720px;
+  }
+
+  .ft-hero-title {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: var(--weight-bold);
+    color: #fff;
+    line-height: 1.1;
+    margin: 0 0 var(--space-3);
+  }
+
+  .ft-hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+    margin: 0 0 var(--space-5);
+    max-width: 580px;
+  }
+
+  .ft-hero-meta {
+    display: flex;
+    gap: var(--space-5);
+    flex-wrap: wrap;
+  }
+
+  .ft-hero-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .ft-hero-meta-label {
+    font-size: 0.65rem;
+    font-weight: var(--weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .ft-hero-meta-value {
+    font-size: 1.1rem;
+    font-weight: var(--weight-bold);
+    color: #fff;
+  }
+
+  .ft-scroll-hint {
+    position: absolute;
+    bottom: 16px;
+    right: var(--space-6);
+    z-index: 3;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: rgba(255, 255, 255, 0.35);
+    text-align: center;
+    animation: ftBounce 2s ease-in-out infinite;
+  }
+
+  @keyframes ftBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
+
+  /* ================================================================
+     PERSONAL INTRO
+     ================================================================ */
+  .ft-personal {
+    padding-block: var(--space-8);
+  }
+
+  .ft-personal-quote {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: var(--space-6) var(--space-8);
+    border-left: 4px solid #D4A574;
+    background: var(--color-sky);
+    border-radius: 0 12px 12px 0;
+  }
+
+  .ft-personal-quote p {
+    font-size: var(--text-body);
+    color: var(--color-heading);
+    line-height: var(--leading-body);
+    font-style: italic;
+    margin-bottom: var(--space-3);
+  }
+
+  .ft-personal-quote cite {
+    font-size: var(--text-caption);
+    color: #78350F;
+    font-weight: var(--weight-semibold);
+    font-style: normal;
+  }
+
+  /* ================================================================
+     QUICK FACTS STRIP
+     ================================================================ */
+  .ft-quickfacts {
+    padding: 0 0 var(--space-4);
+  }
+
+  .ft-quickfacts-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-5);
+    background: var(--color-sky);
+    border-radius: 16px;
+    padding: var(--space-4) var(--space-6);
+    flex-wrap: wrap;
+  }
+
+  .ft-quickfact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    text-align: center;
+  }
+
+  .ft-quickfact-label {
+    font-size: 0.65rem;
+    font-weight: var(--weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-slate);
+  }
+
+  .ft-quickfact-value {
+    font-size: 1.05rem;
+    font-weight: var(--weight-extrabold);
+    color: var(--color-deep-night);
+  }
+
+  .ft-quickfact-divider {
+    width: 1px;
+    height: 28px;
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  /* ================================================================
+     QUICK NAV — Jump-to chips
+     ================================================================ */
+  .ft-quicknav {
+    padding: 0 0 var(--space-6);
+  }
+
+  .ft-quicknav-grid {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+  }
+
+  .ft-quicknav-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: var(--color-white);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 40px;
+    font-size: 0.8rem;
+    font-weight: var(--weight-medium);
+    color: #4A5568;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  }
+
+  .ft-quicknav-chip:hover {
+    background: #FDF8F0;
+    color: #059669;
+    transform: translateY(-2px);
+  }
+
+  .ft-quicknav-icon {
+    font-size: 1rem;
+  }
+
+  .ft-quicknav-label {
+    white-space: nowrap;
+  }
+
+  /* ================================================================
+     TOPIC SECTION
+     ================================================================ */
+  .ft-topic {
+    padding: var(--space-4) 0 var(--space-6);
+    scroll-margin-top: 80px;
+  }
+
+  .ft-topic-header {
+    position: relative;
+    border-radius: 20px;
+    padding: var(--space-5) var(--space-6);
+    margin-bottom: var(--space-5);
+    overflow: hidden;
+  }
+
+  .ft-topic-header-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+  }
+
+  .ft-topic-icon {
+    font-size: 1.6rem;
+  }
+
+  .ft-topic-title {
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    font-weight: var(--weight-bold);
+    color: #fff;
+    margin: 0;
+    line-height: 1.2;
+    flex: 1;
+    min-width: 200px;
+  }
+
+  .ft-topic-count {
+    font-size: 0.7rem;
+    font-weight: var(--weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.55);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+
+  /* ================================================================
+     TIP CARDS
+     ================================================================ */
+  .ft-tip-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+
+  @media (max-width: 768px) {
+    .ft-tip-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .ft-tip-card {
+    background: var(--color-white);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 14px;
+    padding: var(--space-5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .ft-tip-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .ft-tip-label {
+    font-size: 0.95rem;
+    font-weight: var(--weight-bold);
+    color: var(--color-deep-night);
+    margin: 0 0 var(--space-2);
+    line-height: 1.3;
+  }
+
+  .ft-tip-text {
+    font-size: 0.85rem;
+    color: var(--color-slate);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  .ft-tip-text :global(a) {
+    color: #059669;
+    font-weight: var(--weight-semibold);
+    text-decoration: underline;
+    text-decoration-color: rgba(5, 150, 105, 0.3);
+    text-underline-offset: 2px;
+    transition: text-decoration-color 0.2s ease;
+  }
+
+  .ft-tip-text :global(a:hover) {
+    text-decoration-color: #059669;
+  }
+
+  .ft-tip-link {
+    display: inline-block;
+    margin-top: var(--space-3);
+    font-size: 0.8rem;
+    font-weight: var(--weight-semibold);
+    color: #059669;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .ft-tip-link:hover {
+    color: #D4A574;
+  }
+
+  /* ================================================================
+     SCOTT'S PRO TIPS
+     ================================================================ */
+  .ft-protips {
+    padding: var(--space-4) 0 var(--space-6);
+  }
+
+  .ft-protips-card {
+    background: linear-gradient(135deg, #1A2332 0%, #2D3748 100%);
+    border-radius: 20px;
+    padding: var(--space-6) var(--space-6);
+  }
+
+  .ft-protips-heading {
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    font-weight: var(--weight-bold);
+    color: #D4A574;
+    margin: 0 0 var(--space-4);
+  }
+
+  .ft-protips-card .scott-tips {
+    background: transparent;
+    border-left: none;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+  }
+
+  .ft-protips-card .scott-tips ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  .ft-protips-card .scott-tips li {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.65;
+    padding-left: var(--space-4);
+    position: relative;
+  }
+
+  .ft-protips-card .scott-tips li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #D4A574;
+  }
+
+  .ft-protips-card .scott-tips :global(strong) {
+    color: #D4A574;
+    font-weight: var(--weight-semibold);
+  }
+
+  .ft-protips-card .scott-tips :global(a) {
+    color: #FB923C;
+    font-weight: var(--weight-semibold);
+    text-decoration: underline;
+    text-decoration-color: rgba(251, 146, 60, 0.4);
+    text-underline-offset: 2px;
+    transition: text-decoration-color 0.2s ease;
+  }
+
+  .ft-protips-card .scott-tips :global(a:hover) {
+    text-decoration-color: #FB923C;
+  }
+
+  /* ================================================================
+     BOTTOM CTA
+     ================================================================ */
+  .ft-cta-section {
+    padding: var(--space-6) 0 var(--space-8);
+  }
+
+  .ft-cta-card {
+    background: linear-gradient(135deg, #059669 0%, #D4A574 100%);
+    border-radius: 20px;
+    padding: var(--space-8) var(--space-6);
+    text-align: center;
+    color: #fff;
+  }
+
+  .ft-cta-heading {
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    font-weight: var(--weight-bold);
+    margin: 0 0 var(--space-3);
+    color: #fff;
+  }
+
+  .ft-cta-text {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 520px;
+    margin: 0 auto var(--space-5);
+    line-height: 1.6;
+  }
+
+  .ft-cta-button {
+    display: inline-block;
+    background: var(--color-deep-night);
+    color: #D4A574;
+    font-size: 0.9rem;
+    font-weight: var(--weight-semibold);
+    padding: 12px 28px;
+    border-radius: 40px;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .ft-cta-button:hover {
+    background: #0D1117;
+    transform: translateY(-2px);
+  }
+
+  /* ================================================================
+     CROSS-LINKS
+     ================================================================ */
+  .ft-crosslinks {
+    padding: 0 0 var(--space-10);
+  }
+
+  .ft-crosslinks-heading {
+    font-size: 1.1rem;
+    font-weight: var(--weight-bold);
+    color: var(--color-deep-night);
+    text-align: center;
+    margin: 0 0 var(--space-4);
+  }
+
+  .ft-crosslinks-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 640px) {
+    .ft-crosslinks-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .ft-crosslink-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-5) var(--space-4);
+    background: var(--color-white);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 16px;
+    text-decoration: none;
+    color: inherit;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .ft-crosslink-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .ft-crosslink-icon {
+    font-size: 1.8rem;
+  }
+
+  .ft-crosslink-label {
+    font-size: 0.95rem;
+    font-weight: var(--weight-bold);
+    color: #1A2332;
+  }
+
+  .ft-crosslink-desc {
+    font-size: 0.78rem;
+    color: #4A5568;
+    line-height: 1.4;
+  }
+
+  /* ================================================================
+     SCROLL REVEAL
+     ================================================================ */
+  .ft-reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .ft-reveal.ft-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @keyframes ftRevealFallback {
+    to { opacity: 1; transform: none; }
+  }
+
+  .ft-reveal {
+    animation: ftRevealFallback 0s 3s forwards;
+  }
+
+  /* ================================================================
+     RESPONSIVE
+     ================================================================ */
+  @media (max-width: 640px) {
+    .ft-hero {
+      min-height: 50vh;
+      padding: 0 var(--space-4) 40px;
+    }
+
+    .ft-hero-meta {
+      gap: var(--space-4);
+    }
+
+    .ft-scroll-hint {
+      display: none;
+    }
+
+    .ft-topic-header {
+      padding: var(--space-4) var(--space-4);
+    }
+
+    .ft-quickfacts-bar {
+      gap: var(--space-3);
+      padding: var(--space-3) var(--space-4);
+    }
+
+    .ft-quickfact-divider {
+      display: none;
+    }
+
+    .ft-quickfact {
+      min-width: 80px;
+    }
+
+    .ft-personal-quote {
+      padding: var(--space-4) var(--space-5);
+    }
+
+    .ft-protips-card {
+      padding: var(--space-5) var(--space-4);
+    }
+  }
+</style>
