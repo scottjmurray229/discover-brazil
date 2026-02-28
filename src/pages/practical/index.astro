@@ -1,0 +1,793 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import EmailCapture from '../../components/EmailCapture.astro';
+import FAQ from '../../components/FAQ.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Travel Tips', url: '/practical/' },
+];
+
+const pageTitle = 'Brazil Travel Tips — Visa, Currency, Transport & Safety Guide 2026';
+const pageDescription = 'Everything you need before your first trip to Brazil — visa info, BRL currency tips, domestic flights, bus networks, safety advice, health, and Portuguese phrases.';
+
+interface TopicSection {
+  id: string;
+  icon: string;
+  title: string;
+  gradient: string;
+  video?: string;
+  items: { label: string; text: string }[];
+}
+
+const topics: TopicSection[] = [
+  {
+    id: 'visa',
+    icon: '&#128706;',
+    title: 'Visa & Entry Requirements',
+    gradient: 'linear-gradient(135deg, #1565C0 0%, #42A5F5 100%)',
+    video: '/videos/pillar/practical-break-visa.mp4',
+    items: [
+      { label: 'Visa-Free Entry', text: 'US, UK, Canadian, Australian, and EU passport holders can enter Brazil visa-free for up to 90 days for tourism. Since 2024, US citizens no longer need a visa. You\'ll receive a stamp at immigration — keep track of your 90-day window.' },
+      { label: 'Required Documents', text: 'You need a passport valid for at least 6 months beyond your entry date, proof of onward/return travel, and proof of accommodation (hotel booking or host letter). Yellow fever vaccination is required if arriving from certain African or South American countries.' },
+      { label: 'Extension', text: 'Your 90-day tourist visa can be extended once for another 90 days at a Federal Police office (Policia Federal) before it expires. The fee is around R$100. Apply at least 15 days before your visa expires.' },
+      { label: 'Customs Allowances', text: 'You can bring $500 worth of duty-free goods (airport shops) plus $500 from other sources. Declare cash over $10,000. Brazil prohibits importing meat, dairy, fresh produce, and plants without special permits.' },
+    ],
+  },
+  {
+    id: 'money',
+    icon: '&#128176;',
+    title: 'Currency & Money (BRL)',
+    gradient: 'linear-gradient(135deg, #2E7D32 0%, #66BB6A 100%)',
+    video: '/videos/pillar/practical-break-money.mp4',
+    items: [
+      { label: 'The Brazilian Real (R$)', text: 'Brazil uses the real (BRL), plural reais. As of 2026, R$1 = ~$0.20 USD. Bills come in R$2, 5, 10, 20, 50, 100, and 200 denominations. Coins are 5, 10, 25, and 50 centavos plus R$1. Large bills (R$100, R$200) can be hard to break at small shops.' },
+      { label: 'ATM Strategy', text: 'Banco 24 Horas ATMs are the most reliable for international cards. Bradesco and Banco do Brasil ATMs also work well. Withdraw in reais and let your bank handle conversion. Wise and Revolut debit cards give excellent rates. Notify your bank before traveling — Brazilian ATMs can trigger fraud alerts.' },
+      { label: 'Cards vs Cash', text: 'Credit/debit cards are widely accepted in cities — Visa and Mastercard work best. Pix (instant payment) is universal among Brazilians. Smaller shops, markets, and beach vendors often need cash. Always carry R$100-200 in small bills. Fernando de Noronha and remote areas are more cash-dependent.' },
+      { label: 'Daily Budget Ranges', text: 'Backpacker: R$150-250/day (~$30-50 USD) — hostels, street food, local buses. Mid-range: R$400-700/day (~$80-140 USD) — hotels, restaurants, guided tours. Luxury: R$1500+/day (~$300+ USD) — boutique hotels, fine dining, private experiences. Salvador, Recife, and Manaus are cheapest; Fernando de Noronha and Rio are most expensive.' },
+      { label: 'Tipping Customs', text: 'Most restaurants add a 10% service charge (gorjeta) to the bill — paying it is customary but technically optional. If no service charge is included, tip 10%. Tip hotel porters R$5-10 per bag. Tip tour guides R$20-50 per person for a full-day tour. Tipping taxi/Uber drivers is not expected but rounding up is appreciated.' },
+    ],
+  },
+  {
+    id: 'transport',
+    icon: '&#9992;',
+    title: 'Getting Around',
+    gradient: 'linear-gradient(135deg, #E65100 0%, #FF9800 100%)',
+    video: '/videos/pillar/practical-break-transport.mp4',
+    items: [
+      { label: 'Domestic Flights', text: 'Brazil is huge — domestic flights are often the best way to cover long distances. GOL, LATAM, and Azul are the main carriers. Flights between major cities cost R$200-600 one way if booked 2-3 weeks ahead. Book early for Fernando de Noronha and Amazon routes. Check Skyscanner or Google Flights for deals.' },
+      { label: 'Long-Distance Buses', text: 'Brazil has an excellent intercity bus network. Companies like 1001, Catedral, and Viacao Garcia run comfortable leito (sleeper) and semi-leito buses between cities. Sao Paulo to Rio: 6h (~R$80-150). Salvador to Recife: 12h (~R$150-250). Book at clickbus.com.br or busbud.com.' },
+      { label: 'City Transport', text: 'Sao Paulo and Rio have metro systems. Most cities have bus networks — pay with a transport card or cash. Uber and 99 (ride-hailing) work in all major cities and are very affordable. In Rio, use the VLT light rail downtown and the metro to the beaches.' },
+      { label: 'Car Rental', text: 'Useful for exploring coastal routes (Rio to Paraty), Minas Gerais hill towns, and southern Brazil. Rent from Localiza, Movida, or Unidas. International driving permits are recommended. Brazilian roads vary — highways are good, rural roads can be challenging. Avoid driving in Sao Paulo — traffic is legendary.' },
+      { label: 'Boats & Ferries', text: 'Essential for Amazon travel (Manaus to surrounding lodges), reaching Fernando de Noronha (fly instead — ferries are rare), and island-hopping around Florianopolis and Paraty. Speedboat transfers to Amazon lodges are typically arranged by the lodge.' },
+    ],
+  },
+  {
+    id: 'connectivity',
+    icon: '&#128241;',
+    title: 'SIM Cards & Connectivity',
+    gradient: 'linear-gradient(135deg, #6A1B9A 0%, #AB47BC 100%)',
+    video: '/videos/pillar/practical-break-connectivity.mp4',
+    items: [
+      { label: 'Brazilian SIM Cards', text: 'Buy a prepaid SIM from Claro, Vivo, or TIM at the airport or any phone shop. You\'ll need your passport and CPF number (ask the shop to help — tourists can get a temporary one). Plans with 15-20GB cost R$30-50/month. Claro has the best coverage nationwide.' },
+      { label: 'eSIM Options', text: 'Airalo and Holafly offer Brazil eSIMs for $8-25 for 5-10GB. No physical SIM swap needed — activate before you land. Best option for short trips when you don\'t want to deal with local registration requirements.' },
+      { label: 'WiFi Quality', text: '4G coverage is good in major cities and tourist areas. Remote areas (Amazon interior, rural Northeast) can have spotty coverage. Free WiFi is available at most hotels, restaurants, and shopping malls. Download offline maps before heading to remote destinations.' },
+      { label: 'Essential Apps', text: 'WhatsApp is universal in Brazil — businesses, restaurants, and even emergency services use it. Download Uber and 99 for rides, Google Translate (offline Portuguese), Maps.me (offline maps), and iFood (food delivery). Pix payment apps are useful if you set up a Brazilian bank account.' },
+    ],
+  },
+  {
+    id: 'safety',
+    icon: '&#127973;',
+    title: 'Safety & Health',
+    gradient: 'linear-gradient(135deg, #C62828 0%, #EF5350 100%)',
+    video: '/videos/pillar/practical-break-safety.mp4',
+    items: [
+      { label: 'Travel Insurance', text: 'Essential for Brazil. <a href="https://safetywing.com/?referenceID=24858745&utm_source=24858745&utm_medium=Ambassador" target="_blank" rel="noopener sponsored">SafetyWing</a> covers medical, evacuation, and trip interruption at reasonable rates. Brazilian private hospitals are excellent but expensive without insurance. Sign up even after departure.' },
+      { label: 'General Safety', text: 'Use common sense and you\'ll be fine. Don\'t flash expensive phones, cameras, or jewelry in busy areas. Use hotel safes. Stick to well-lit, populated areas at night. Use Uber/99 instead of hailing street taxis. Popular tourist areas in Rio, Salvador, and Sao Paulo have tourist police presence. Most travelers have zero safety issues.' },
+      { label: 'Health & Vaccinations', text: 'Yellow fever vaccination is recommended for travel to the Amazon, Pantanal, and Brasilia regions. Consult a travel doctor 4-6 weeks before departure. Tap water is safe in most major cities (Sao Paulo, Rio, Brasilia) but stick to bottled water in smaller towns and the Northeast. Use sunscreen generously — the tropical sun is intense.' },
+      { label: 'Common Scams', text: 'Watch for: overpriced beach vendors (agree on price before ordering), unofficial "tour guides" at attractions, and distraction theft at ATMs. In busy areas, carry a decoy phone and keep your real phone hidden. At beaches, don\'t leave belongings unattended. Use only official exchange houses (casas de cambio).' },
+      { label: 'Emergency Numbers', text: '190 for police (Policia Militar), 192 for ambulance (SAMU), 193 for fire department. Tourist police (DEAT) in Rio: (21) 2332-2924. Most emergency operators speak limited English — use Google Translate or ask a local for help. Save your country\'s consulate number in your phone.' },
+    ],
+  },
+  {
+    id: 'culture',
+    icon: '&#127758;',
+    title: 'Language & Cultural Tips',
+    gradient: 'linear-gradient(135deg, #0D7377 0%, #14B8A6 100%)',
+    video: '/videos/pillar/practical-break-culture.mp4',
+    items: [
+      { label: 'Portuguese (Not Spanish!)', text: 'Brazil speaks Portuguese, not Spanish. While similar, they\'re different languages — Brazilians appreciate when you try Portuguese rather than defaulting to Spanish. English is spoken in upscale hotels and tourist agencies but rarely by everyday Brazilians. Download Google Translate with offline Portuguese.' },
+      { label: 'Essential Phrases', text: 'Oi/Ol\u00e1 (Hello), Obrigado/a (Thank you — o for men, a for women), Por favor (Please), Quanto custa? (How much?), Onde fica...? (Where is...?), A conta, por favor (The check, please), N\u00e3o falo portugu\u00eas (I don\'t speak Portuguese), Tudo bem? (How are you? / Everything OK?).' },
+      { label: 'Social Culture', text: 'Brazilians are warm and physically affectionate — expect cheek kisses (one or two, depending on the region) when greeting. Personal space is smaller than in the US/UK. Brazilians run on "Brazilian time" — social events start 30-60 minutes late. Dress is casual but Brazilians put effort into appearance, even at the beach.' },
+      { label: 'Dining Etiquette', text: 'Lunch is the main meal (12-2 PM), often at comida a quilo (buffet by weight) restaurants. Dinner starts late (8-10 PM). At churrascarias, flip your card to green to keep meat coming, red to stop. Caipirinhas are pre-dinner drinks. Coffee (cafezinho) is served strong, sweet, and in small cups throughout the day.' },
+    ],
+  },
+];
+---
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  pageType="destination"
+  schemaData={{ title: pageTitle, description: pageDescription }}
+  breadcrumbs={breadcrumbs}
+>
+  <!-- Hero -->
+  <header class="prac-hero">
+    <video class="prac-hero-video" autoplay muted loop playsinline preload="metadata">
+      <source src="/videos/pillar/practical-hero.mp4" type="video/mp4" />
+    </video>
+    <div class="prac-hero-gradient"></div>
+    <div class="prac-hero-noise"></div>
+    <div class="prac-hero-content">
+      <h1 class="prac-hero-title">Brazil Travel Essentials</h1>
+      <p class="prac-hero-subtitle">Visa requirements, BRL currency tips, domestic flights, bus networks, safety advice, health info, and the Portuguese phrases that turn a good trip into a great one.</p>
+      <div class="prac-hero-meta">
+        <div class="prac-hero-meta-item">
+          <span class="prac-hero-meta-label">Topics</span>
+          <span class="prac-hero-meta-value">6</span>
+        </div>
+        <div class="prac-hero-meta-item">
+          <span class="prac-hero-meta-label">Updated</span>
+          <span class="prac-hero-meta-value">Feb 2026</span>
+        </div>
+        <div class="prac-hero-meta-item">
+          <span class="prac-hero-meta-label">Countries</span>
+          <span class="prac-hero-meta-value">13</span>
+        </div>
+      </div>
+    </div>
+    <div class="prac-scroll-hint">Scroll<br />&#8595;</div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="container-content">
+    <Breadcrumb items={breadcrumbs} />
+  </div>
+
+  <!-- Personal intro -->
+  <section class="prac-personal reveal">
+    <div class="container-content">
+      <blockquote class="prac-personal-quote">
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Quick Nav -->
+  <section class="prac-quicknav reveal">
+    <div class="container-content">
+      <div class="prac-quicknav-grid">
+        {topics.map((t) => (
+          <a href={`#${t.id}`} class="prac-quicknav-chip">
+            <span class="prac-quicknav-icon">{t.icon}</span>
+            <span class="prac-quicknav-label">{t.title.split(' ').slice(0, 2).join(' ')}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Topic Sections -->
+  {topics.map((topic) => (
+    <section class="prac-topic reveal" id={topic.id}>
+      <div class="container-content">
+        <div class="prac-topic-header" style={`background: ${topic.gradient};`}>
+          {topic.video && (
+            <video class="prac-topic-video" autoplay muted loop playsinline preload="none">
+              <source src={topic.video} type="video/mp4" />
+            </video>
+          )}
+          <div class="prac-topic-header-inner">
+            <span class="prac-topic-icon">{topic.icon}</span>
+            <h2 class="prac-topic-title">{topic.title}</h2>
+            <span class="prac-topic-count">{topic.items.length} tips</span>
+          </div>
+        </div>
+
+        <div class="prac-tip-grid">
+          {topic.items.map((item) => (
+            <div class="prac-tip-card">
+              <h3 class="prac-tip-label">{item.label}</h3>
+              <p class="prac-tip-text" set:html={item.text} />
+            </div>
+          ))}
+        </div>
+
+        {topic.id === 'transport' && (
+          <div class="prac-transport-widget">
+            <h3 class="prac-transport-widget-title">Search Routes & Book Transport</h3>
+            <p class="prac-transport-widget-desc">Compare buses, flights, and transfers between Brazilian destinations.</p>
+            <div class="prac-transport-widget-inner" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+              <a href="https://www.clickbus.com.br/" target="_blank" rel="noopener" style="display:inline-block;background:#0D7377;color:white;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:600;">Search ClickBus</a>
+              <a href="https://www.google.com/travel/flights" target="_blank" rel="noopener" style="display:inline-block;background:#4285F4;color:white;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:600;">Search Flights</a>
+            </div>
+          </div>
+        )}
+      </div>
+    </section>
+  ))}
+
+  <!-- Affiliate Disclosure -->
+  <div class="container-content reveal" style="padding-bottom: 0;">
+    <p class="prac-affiliate-disclosure">Some links on this page are affiliate links — we earn a small commission if you purchase through them, at no extra cost to you. We only recommend services we personally use on our Brazil trips. <a href="/legal/affiliate-disclosure/">Full disclosure</a>.</p>
+  </div>
+
+  <!-- Bottom CTA -->
+  <section class="prac-cta-section reveal">
+    <div class="container-content">
+      <div class="prac-cta-card">
+        <h2 class="prac-cta-heading">Plan Your Brazil Trip</h2>
+        <p class="prac-cta-text">Tell our AI planner your dates, budget, and interests — it builds a custom day-by-day itinerary with flights, hotels, and activities.</p>
+        <a href="/plan/" class="prac-cta-button">Start Planning &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <FAQ items={[
+    { question: "Do I need a visa to visit Brazil?", answer: "US, UK, Canadian, Australian, and EU passport holders can enter Brazil visa-free for up to 90 days for tourism. Since 2024, US citizens no longer need a visa application. Just show up with a valid passport (6 months validity), proof of onward travel, and accommodation details. You can extend once for another 90 days at a Federal Police office." },
+    { question: "Is Brazil safe for tourists?", answer: "Brazil is safe for tourists who use common sense. Avoid displaying expensive items in busy areas, use Uber/99 instead of street taxis, stick to well-lit areas at night, and use hotel safes. Popular tourist zones have police presence. Millions of tourists visit Rio, Salvador, and Sao Paulo each year without issues. Solo female travelers should take standard precautions." },
+    { question: "How much does it cost to travel Brazil?", answer: "Brazil offers great value for travelers. Budget: R$150-250/day (~$30-50 USD) for hostels, street food, and local buses. Mid-range: R$400-700/day (~$80-140 USD) for hotels, restaurants, and guided tours. Luxury: R$1500+/day (~$300+ USD). Salvador, Recife, and Manaus are cheapest. Fernando de Noronha and high-season Rio are most expensive." },
+    { question: "What is the best way to get around Brazil?", answer: "Brazil is huge — domestic flights are essential for long distances (GOL, LATAM, Azul from R$200-600 one way). Comfortable intercity buses connect closer cities affordably. Uber and 99 work in all major cities. Sao Paulo and Rio have metro systems. For coastal exploring, rent a car. For the Amazon, book transfers through your lodge." },
+    { question: "What currency do I need?", answer: "Brazil uses the real (BRL/R$). Bring a Wise or Revolut debit card for the best exchange rates at ATMs. Banco 24 Horas ATMs are the most reliable. Cards are widely accepted in cities but carry cash for markets, beach vendors, and smaller towns. Never change money with unlicensed street changers." },
+    { question: "What is the best time to visit Brazil?", answer: "April-June and August-October offer pleasant weather, fewer crowds, and lower prices across most of Brazil. December-March is hot and rainy (but great for Carnival in February). The Amazon dry season (June-November) is best for wildlife. Fernando de Noronha diving is best August-December. Southern Brazil is cooler May-September." },
+  ]} />
+
+  <!-- Email Capture -->
+  <div class="container-content reveal" style="padding-bottom: var(--space-6);">
+    <EmailCapture
+      leadMagnet="Get Our Free Brazil Travel Essentials Guide"
+      description="A printable PDF covering everything in this guide — plus currency cheat sheets, Portuguese phrase cards, and a packing checklist."
+      bullets={[
+        'Visa requirements and entry info explained simply',
+        'Currency guide with ATM strategy and budget tips',
+        'Transport route planner between major Brazilian cities',
+        'Essential Portuguese phrases for markets and transport',
+      ]}
+      guideTag="pillar-practical"
+    />
+  </div>
+
+  <!-- Cross-links -->
+  <section class="prac-crosslinks reveal">
+    <div class="container-content">
+      <h3 class="prac-crosslinks-heading">Explore More</h3>
+      <div class="prac-crosslinks-grid">
+        <a href="/cuisine/" class="prac-crosslink-card">
+          <span class="prac-crosslink-icon">&#127860;</span>
+          <span class="prac-crosslink-label">Food & Cuisine</span>
+          <span class="prac-crosslink-desc">18 dishes across 4 regions with where to find the best version</span>
+        </a>
+        <a href="/history/" class="prac-crosslink-card">
+          <span class="prac-crosslink-icon">&#127963;</span>
+          <span class="prac-crosslink-label">History Guide</span>
+          <span class="prac-crosslink-desc">From indigenous peoples to independence and modernism</span>
+        </a>
+        <a href="/hiking/" class="prac-crosslink-card">
+          <span class="prac-crosslink-icon">&#9968;</span>
+          <span class="prac-crosslink-label">Outdoor Activities</span>
+          <span class="prac-crosslink-desc">Amazon trekking, Chapada Diamantina, Iguazu trails, and more</span>
+        </a>
+        <a href="/destinations/" class="prac-crosslink-card">
+          <span class="prac-crosslink-icon">&#127965;</span>
+          <span class="prac-crosslink-label">All Destinations</span>
+          <span class="prac-crosslink-desc">13 destinations across 4 regions with honest reviews</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<!-- Scroll Reveal Observer -->
+<script>
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    );
+    document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach((el) => el.classList.add('visible'));
+  }
+</script>
+
+<style>
+  /* ================================================================
+     HERO — Practical travel gradient (no video)
+     ================================================================ */
+  .prac-hero {
+    position: relative;
+    min-height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 5rem var(--space-6) 60px;
+    overflow: hidden;
+  }
+
+  .prac-hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  .prac-hero-gradient {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.55) 100%);
+  }
+
+  .prac-hero-noise {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .prac-hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 720px;
+  }
+
+  .prac-hero-title {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: var(--weight-bold);
+    color: #fff;
+    line-height: 1.1;
+    margin: 0 0 var(--space-3);
+  }
+
+  .prac-hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+    margin: 0 0 var(--space-5);
+    max-width: 580px;
+  }
+
+  .prac-hero-meta {
+    display: flex;
+    gap: var(--space-5);
+    flex-wrap: wrap;
+  }
+
+  .prac-hero-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .prac-hero-meta-label {
+    font-size: 0.65rem;
+    font-weight: var(--weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .prac-hero-meta-value {
+    font-size: 1.1rem;
+    font-weight: var(--weight-bold);
+    color: #fff;
+  }
+
+  .prac-scroll-hint {
+    position: absolute;
+    bottom: 16px;
+    right: var(--space-6);
+    z-index: 3;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: rgba(255, 255, 255, 0.35);
+    text-align: center;
+    animation: pracBounce 2s ease-in-out infinite;
+  }
+
+  @keyframes pracBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
+
+  /* ================================================================
+     PERSONAL INTRO
+     ================================================================ */
+  .prac-personal {
+    padding-block: var(--space-8);
+  }
+
+  .prac-personal-quote {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: var(--space-6) var(--space-8);
+    border-left: 4px solid var(--color-ocean-teal);
+    background: var(--color-sky);
+    border-radius: 0 12px 12px 0;
+  }
+
+  .prac-personal-quote p {
+    font-size: var(--text-body);
+    color: var(--color-heading);
+    line-height: var(--leading-body);
+    font-style: italic;
+    margin-bottom: var(--space-3);
+  }
+
+  .prac-personal-quote cite {
+    font-size: var(--text-caption);
+    color: var(--color-ocean-teal);
+    font-weight: var(--weight-semibold);
+    font-style: normal;
+  }
+
+  /* ================================================================
+     QUICK NAV — Jump-to chips
+     ================================================================ */
+  .prac-quicknav {
+    padding: 0 0 var(--space-6);
+  }
+
+  .prac-quicknav-grid {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+  }
+
+  .prac-quicknav-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: var(--color-white);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 40px;
+    font-size: 0.8rem;
+    font-weight: var(--weight-medium);
+    color: var(--color-slate);
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  }
+
+  .prac-quicknav-chip:hover {
+    background: var(--color-sky);
+    color: var(--color-ocean-teal);
+    transform: translateY(-2px);
+  }
+
+  .prac-quicknav-icon {
+    font-size: 1rem;
+  }
+
+  .prac-quicknav-label {
+    white-space: nowrap;
+  }
+
+  /* ================================================================
+     TOPIC SECTION
+     ================================================================ */
+  .prac-topic {
+    padding: var(--space-4) 0 var(--space-6);
+    scroll-margin-top: 80px;
+  }
+
+  .prac-topic-header {
+    position: relative;
+    border-radius: 20px;
+    padding: var(--space-5) var(--space-6);
+    margin-bottom: var(--space-5);
+    overflow: hidden;
+  }
+
+  .prac-topic-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    opacity: 0.35;
+  }
+
+  .prac-topic-header-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+  }
+
+  .prac-topic-icon {
+    font-size: 1.6rem;
+  }
+
+  .prac-topic-title {
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    font-weight: var(--weight-bold);
+    color: #fff;
+    margin: 0;
+    line-height: 1.2;
+    flex: 1;
+    min-width: 200px;
+  }
+
+  .prac-topic-count {
+    font-size: 0.7rem;
+    font-weight: var(--weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.55);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+
+  /* ================================================================
+     TIP CARDS
+     ================================================================ */
+  .prac-tip-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+
+  @media (max-width: 768px) {
+    .prac-tip-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .prac-tip-card {
+    background: var(--color-white);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 14px;
+    padding: var(--space-5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .prac-tip-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .prac-tip-label {
+    font-size: 0.95rem;
+    font-weight: var(--weight-bold);
+    color: var(--color-deep-night);
+    margin: 0 0 var(--space-2);
+    line-height: 1.3;
+  }
+
+  .prac-tip-text {
+    font-size: 0.85rem;
+    color: var(--color-slate);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  .prac-tip-text :global(a) {
+    color: var(--color-ocean-teal);
+    font-weight: var(--weight-semibold);
+    text-decoration: underline;
+    text-decoration-color: rgba(13, 115, 119, 0.3);
+    text-underline-offset: 2px;
+    transition: text-decoration-color 0.2s ease;
+  }
+
+  .prac-tip-text :global(a:hover) {
+    text-decoration-color: var(--color-ocean-teal);
+  }
+
+  /* ================================================================
+     12GO TRANSPORT WIDGET
+     ================================================================ */
+  .prac-transport-widget {
+    text-align: center;
+    margin-top: var(--space-6);
+    padding: var(--space-6);
+    background: var(--color-sky);
+    border-radius: 16px;
+  }
+
+  .prac-transport-widget-title {
+    font-size: 1.1rem;
+    font-weight: var(--weight-bold);
+    color: var(--color-deep-night);
+    margin: 0 0 var(--space-1);
+  }
+
+  .prac-transport-widget-desc {
+    font-size: 0.85rem;
+    color: var(--color-slate);
+    margin: 0 0 var(--space-4);
+  }
+
+  .prac-transport-widget-inner {
+    display: inline-block;
+    max-width: 282px;
+  }
+
+  .prac-transport-widget-powered {
+    font-size: 0.7rem;
+    color: var(--color-slate);
+    margin-top: var(--space-2);
+  }
+
+  .prac-transport-widget-powered a {
+    color: var(--color-ocean-teal);
+    text-decoration: underline;
+  }
+
+  /* ================================================================
+     AFFILIATE DISCLOSURE
+     ================================================================ */
+  .prac-affiliate-disclosure {
+    font-size: 0.75rem;
+    color: var(--color-slate);
+    line-height: 1.5;
+    text-align: center;
+    padding: var(--space-4) var(--space-6);
+    background: var(--color-sky);
+    border-radius: 10px;
+    margin-bottom: var(--space-4);
+  }
+
+  .prac-affiliate-disclosure a {
+    color: var(--color-ocean-teal);
+    text-decoration: underline;
+  }
+
+  /* ================================================================
+     BOTTOM CTA
+     ================================================================ */
+  .prac-cta-section {
+    padding: var(--space-6) 0 var(--space-8);
+  }
+
+  .prac-cta-card {
+    background: linear-gradient(135deg, var(--color-deep-night) 0%, #2D3748 100%);
+    border-radius: 20px;
+    padding: var(--space-8) var(--space-6);
+    text-align: center;
+    color: #fff;
+  }
+
+  .prac-cta-heading {
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    font-weight: var(--weight-bold);
+    margin: 0 0 var(--space-3);
+    color: #fff;
+  }
+
+  .prac-cta-text {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.75);
+    max-width: 520px;
+    margin: 0 auto var(--space-5);
+    line-height: 1.6;
+  }
+
+  .prac-cta-button {
+    display: inline-block;
+    background: var(--color-warm-coral);
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: var(--weight-semibold);
+    padding: 12px 28px;
+    border-radius: 40px;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .prac-cta-button:hover {
+    background: #d4553b;
+    transform: translateY(-2px);
+  }
+
+  /* ================================================================
+     CROSS-LINKS
+     ================================================================ */
+  .prac-crosslinks {
+    padding: 0 0 var(--space-10);
+  }
+
+  .prac-crosslinks-heading {
+    font-size: 1.1rem;
+    font-weight: var(--weight-bold);
+    color: var(--color-deep-night);
+    text-align: center;
+    margin: 0 0 var(--space-4);
+  }
+
+  .prac-crosslinks-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-4);
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 768px) {
+    .prac-crosslinks-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .prac-crosslinks-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .prac-crosslink-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-5) var(--space-4);
+    background: var(--color-white);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 16px;
+    text-decoration: none;
+    color: inherit;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .prac-crosslink-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .prac-crosslink-icon {
+    font-size: 1.8rem;
+  }
+
+  .prac-crosslink-label {
+    font-size: 0.95rem;
+    font-weight: var(--weight-bold);
+    color: var(--color-deep-night);
+  }
+
+  .prac-crosslink-desc {
+    font-size: 0.78rem;
+    color: var(--color-slate);
+    line-height: 1.4;
+  }
+
+  /* ================================================================
+     RESPONSIVE
+     ================================================================ */
+  @media (max-width: 640px) {
+    .prac-hero {
+      min-height: 50vh;
+      padding: 0 var(--space-4) 40px;
+    }
+
+    .prac-hero-meta {
+      gap: var(--space-4);
+    }
+
+    .prac-scroll-hint {
+      display: none;
+    }
+
+    .prac-topic-header {
+      padding: var(--space-4) var(--space-4);
+    }
+  }
+</style>

@@ -1,0 +1,181 @@
+{
+  "name": "Rio & Iguazu Explorer",
+  "subtitle": "Rio de Janeiro \u2192 Iguazu Falls",
+  "dates": "Jun 12\u2013Jun 14, 2026",
+  "days": [
+    {
+      "day": 1,
+      "date": "Fri, Jun 12",
+      "title": "Arrive Rio de Janeiro",
+      "location": "Rio de Janeiro, Brazil",
+      "items": [
+        {
+          "id": "d1-1",
+          "time": "10:00 AM",
+          "icon": "\u2708\ufe0f",
+          "type": "transport",
+          "title": "Arrive Galeao International Airport",
+          "detail": "Flight arrives at GIG Terminal 2. Take Uber or taxi to Copacabana/Ipanema ~R$80-120 (40 min depending on traffic). Or airport bus BRT Ligeirinho to Zona Sul.",
+          "status": "confirmed",
+          "lat": -22.8089,
+          "lng": -43.2436
+        },
+        {
+          "id": "d1-2",
+          "time": "11:30 AM",
+          "icon": "\ud83c\udfe8",
+          "type": "accommodation",
+          "title": "Check In \u2014 Ipanema Hotel",
+          "detail": "Hotel near Ipanema Beach. Drop bags and freshen up after flight. Walking distance to the beach, restaurants, and metro station.",
+          "status": "confirmed",
+          "lat": -22.9838,
+          "lng": -43.2045
+        },
+        {
+          "id": "d1-3",
+          "time": "12:30 PM",
+          "icon": "\ud83c\udf5e",
+          "type": "food",
+          "title": "Lunch at Garota de Ipanema",
+          "detail": "The bar where the famous bossa nova song 'Girl from Ipanema' was composed. Classic Brazilian dishes and cold chopp beer. Try the feijoada or picanha. Mains R$50\u201390 ($10\u201318).",
+          "status": "confirmed",
+          "lat": -22.9841,
+          "lng": -43.1988
+        },
+        {
+          "id": "d1-4",
+          "time": "2:30 PM",
+          "icon": "\u26f0\ufe0f",
+          "type": "activity",
+          "title": "Sugarloaf Mountain Cable Car",
+          "detail": "Two-stage cable car to Pao de Acucar (396m). Stunning 360-degree views of Guanabara Bay, Copacabana, and Christ the Redeemer. Tickets R$120 ($24). Allow 2-3 hours. Late afternoon light is best for photos.",
+          "status": "confirmed",
+          "lat": -22.9491,
+          "lng": -43.1546
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "date": "Sat, Jun 13",
+      "title": "Rio Highlights & Flight South",
+      "location": "Rio de Janeiro \u2192 Foz do Iguacu",
+      "items": [
+        {
+          "id": "d2-1",
+          "time": "6:30 AM",
+          "icon": "\ud83c\udf05",
+          "type": "activity",
+          "title": "Christ the Redeemer at Sunrise",
+          "detail": "Take the cog train from Cosme Velho station up Corcovado Mountain. First train at 8 AM but early start beats the crowds. The 38-meter statue and panoramic views are breathtaking. Tickets R$80 ($16) \u2014 book online ahead.",
+          "status": "confirmed",
+          "lat": -22.9519,
+          "lng": -43.2105
+        },
+        {
+          "id": "d2-2",
+          "time": "10:00 AM",
+          "icon": "\ud83c\udf86",
+          "type": "activity",
+          "title": "Selaron Steps & Lapa",
+          "detail": "The iconic 215 mosaic-covered steps created by Chilean artist Jorge Selaron. Then explore the Lapa neighborhood \u2014 Arcos da Lapa aqueduct, street art, and bohemian vibes. Free to visit.",
+          "status": "confirmed",
+          "lat": -22.9154,
+          "lng": -43.1790
+        },
+        {
+          "id": "d2-3",
+          "time": "12:00 PM",
+          "icon": "\ud83c\udf54",
+          "type": "food",
+          "title": "Lunch at Confeitaria Colombo",
+          "detail": "Belle Epoque cafe in downtown Rio since 1894. Ornate mirrors, stained glass, and classic Brazilian pastries. Try the coxinha and pasteis. Budget R$60\u2013100. A beautiful piece of Rio history.",
+          "status": "confirmed",
+          "lat": -22.9044,
+          "lng": -43.1762
+        },
+        {
+          "id": "d2-4",
+          "time": "4:00 PM",
+          "icon": "\u2708\ufe0f",
+          "type": "transport",
+          "title": "Flight: Rio \u2192 Foz do Iguacu",
+          "detail": "GOL or LATAM flight from Santos Dumont (SDU) or Galeao (GIG) to Foz do Iguacu (IGU). ~2 hours. Book ahead for best fares (~R$300\u2013500). Taxi from IGU airport to hotel ~R$40 (15 min).",
+          "status": "confirmed",
+          "lat": -22.9104,
+          "lng": -43.1631
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "date": "Sun, Jun 14",
+      "title": "Iguazu Falls",
+      "location": "Foz do Iguacu, Brazil",
+      "items": [
+        {
+          "id": "d3-1",
+          "time": "8:00 AM",
+          "icon": "\ud83c\udf0a",
+          "type": "activity",
+          "title": "Iguazu Falls \u2014 Brazilian Side",
+          "detail": "The Brazilian side offers the best panoramic views of the 275 waterfalls spanning 2.7 km. Walk the 1.2 km trail to the Devil's Throat platform \u2014 prepare to get soaked from the spray. Entry R$80 ($16). Allow 3\u20134 hours.",
+          "status": "confirmed",
+          "lat": -25.6953,
+          "lng": -54.4367
+        },
+        {
+          "id": "d3-2",
+          "time": "12:00 PM",
+          "icon": "\ud83c\udf3f",
+          "type": "activity",
+          "title": "Parque das Aves (Bird Park)",
+          "detail": "Walk-through aviaries with toucans, macaws, and 150+ species of tropical birds. Right next to the falls entrance. Entry R$70 ($14). A great complement to the falls visit. Allow 1.5 hours.",
+          "status": "confirmed",
+          "lat": -25.6274,
+          "lng": -54.4839
+        },
+        {
+          "id": "d3-3",
+          "time": "2:00 PM",
+          "icon": "\ud83c\udf5d",
+          "type": "food",
+          "title": "Lunch at Rafain Churrascaria",
+          "detail": "Legendary all-you-can-eat Brazilian churrascaria (steakhouse). Gauchos carve picanha, alcatra, and cordeiro at your table. Includes massive salad bar and sides. R$120 ($24) per person. Come hungry.",
+          "status": "confirmed",
+          "lat": -25.5407,
+          "lng": -54.5856
+        },
+        {
+          "id": "d3-4",
+          "time": "4:00 PM",
+          "icon": "\ud83d\udea3",
+          "type": "activity",
+          "title": "Macuco Safari Boat Ride",
+          "detail": "Thrilling zodiac boat ride right up to the base of the falls. You will get completely drenched \u2014 bring a waterproof bag for electronics. R$280 ($56). An unforgettable experience and the highlight for most visitors.",
+          "status": "weather_watch",
+          "weatherNote": "Activity depends on river conditions \u2014 may be suspended during high water",
+          "lat": -25.6800,
+          "lng": -54.4400
+        }
+      ]
+    }
+  ],
+  "weather": [
+    { "day": "Fri", "icon": "\u2600\ufe0f", "high": 28, "low": 20, "rain": 10 },
+    { "day": "Sat", "icon": "\u26c5", "high": 26, "low": 19, "rain": 25 },
+    { "day": "Sun", "icon": "\ud83c\udf24\ufe0f", "high": 24, "low": 16, "rain": 15 }
+  ],
+  "contacts": [
+    { "icon": "\ud83d\udea8", "name": "Brazil Emergency", "role": "Police / Fire / Ambulance", "phone": "190 / 193 / 192" },
+    { "icon": "\ud83c\udfe5", "name": "Hospital Copa D'Or", "role": "Rio de Janeiro (private)", "phone": "+55-21-2545-3600" },
+    { "icon": "\ud83c\udfe5", "name": "Hospital Costa Cavalcanti", "role": "Foz do Iguacu", "phone": "+55-45-3576-8000" },
+    { "icon": "\u2708\ufe0f", "name": "GOL Airlines", "role": "Flight changes", "phone": "0300-115-2121" },
+    { "icon": "\ud83c\udfe8", "name": "Hotel Concierge", "role": "Accommodation help", "phone": "+55-21-3000-0000" }
+  ],
+  "group": [
+    { "id": "g1", "name": "Scott", "avatar": "\ud83e\udd20", "role": "host", "color": "#0D7377" }
+  ],
+  "notifications": [],
+  "changeLog": []
+}

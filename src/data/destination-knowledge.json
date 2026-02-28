@@ -1,0 +1,222 @@
+{
+  "destinations": {
+    "rio-de-janeiro": {
+      "title": "Rio de Janeiro",
+      "tagline": "The Marvelous City",
+      "region": "southeast",
+      "bestMonths": ["Mar", "Apr", "May", "Sep", "Oct", "Nov"],
+      "budgetPerDay": { "backpacker": 50, "midRange": 120, "luxury": 350 },
+      "gettingThere": "Fly to Galeao International Airport (GIG) — major hub with direct flights from North America, Europe, and across South America. 30-60 min taxi or bus to Copacabana/Ipanema. Santos Dumont (SDU) handles domestic flights and is closer to the city center.",
+      "highlights": ["Christ the Redeemer at sunrise", "Sugarloaf Mountain cable car", "Ipanema & Copacabana beaches", "Selaron Steps in Lapa", "Santa Teresa neighborhood walk", "Tijuca National Park hike", "Maracana Stadium tour", "Botanical Garden"],
+      "essentials": {
+        "gettingAround": "Metro covers Zona Sul and Centro well. Uber and 99 rideshare widely used. Buses extensive but confusing for visitors. BRT for longer routes.",
+        "airport": "Galeao International (GIG) / Santos Dumont (SDU)",
+        "trainConnections": ["Bus to Sao Paulo (6 hr, ~R$120)", "Bus to Paraty (4.5 hr, ~R$80)", "Flight to Salvador (2.5 hr, ~R$300)"],
+        "language": "Portuguese, limited English in tourist areas"
+      }
+    },
+    "sao-paulo": {
+      "title": "Sao Paulo",
+      "tagline": "South America's Cultural Powerhouse",
+      "region": "southeast",
+      "bestMonths": ["Mar", "Apr", "May", "Sep", "Oct", "Nov"],
+      "budgetPerDay": { "backpacker": 45, "midRange": 110, "luxury": 300 },
+      "gettingThere": "Fly to Guarulhos International Airport (GRU) — Brazil's busiest airport. Airport Express bus to Paulista ~R$50 (1 hr). Congonhas (CGH) handles domestic shuttles and is closer to the center.",
+      "highlights": ["Avenida Paulista Sunday promenade", "MASP art museum", "Ibirapuera Park", "Mercado Municipal (Mercadao)", "Vila Madalena street art (Beco do Batman)", "Pinacoteca do Estado", "Liberdade Japanese quarter", "World-class dining scene"],
+      "essentials": {
+        "gettingAround": "Metro is clean and efficient. Uber and 99 essential for the sprawling city. Traffic is legendary — avoid rush hours.",
+        "airport": "Guarulhos International (GRU) / Congonhas (CGH)",
+        "trainConnections": ["Bus to Rio de Janeiro (6 hr, ~R$120)", "Bus to Paraty (5.5 hr, ~R$100)", "Flight to most Brazilian cities"],
+        "language": "Portuguese, some English in upscale areas"
+      }
+    },
+    "salvador": {
+      "title": "Salvador",
+      "tagline": "The Soul of Brazil",
+      "region": "northeast",
+      "bestMonths": ["Sep", "Oct", "Nov", "Dec", "Jan", "Mar"],
+      "budgetPerDay": { "backpacker": 35, "midRange": 90, "luxury": 250 },
+      "gettingThere": "Fly to Salvador Airport (SSA). Uber or taxi to Pelourinho ~R$60 (30 min). Direct flights from major Brazilian cities and some international routes.",
+      "highlights": ["Pelourinho historic center (UNESCO)", "Lacerda Elevator ride", "Church of Sao Francisco golden interior", "Farol da Barra lighthouse sunset", "Mercado Modelo crafts", "Acaraje street food", "Capoeira performances", "Bonfim Church ribbon tradition"],
+      "essentials": {
+        "gettingAround": "Pelourinho is walkable but hilly. Uber for longer trips. Lacerda Elevator connects Upper and Lower City. Be cautious at night outside tourist areas.",
+        "airport": "Salvador Deputado Luis Eduardo Magalhaes (SSA)",
+        "trainConnections": ["Flight to Recife (1.5 hr, ~R$250)", "Bus to Recife (12 hr, ~R$150)", "Flight to Rio (2.5 hr, ~R$300)"],
+        "language": "Portuguese, very limited English"
+      }
+    },
+    "florianopolis": {
+      "title": "Florianopolis",
+      "tagline": "The Magic Island",
+      "region": "south",
+      "bestMonths": ["Dec", "Jan", "Feb", "Mar", "Nov"],
+      "budgetPerDay": { "backpacker": 40, "midRange": 100, "luxury": 280 },
+      "gettingThere": "Fly to Florianopolis Airport (FLN). Uber or taxi to beaches ~R$40-80 depending on destination. Car rental recommended for exploring the island.",
+      "highlights": ["42 beaches to choose from", "Lagoa da Conceicao lagoon", "Praia da Joaquina surfing", "Jurere Internacional beach club scene", "Santo Antonio de Lisboa fishing village", "Hercilio Luz Bridge", "Praia Mole", "Fresh oyster farms"],
+      "essentials": {
+        "gettingAround": "Car rental strongly recommended — island is large and buses are slow. Uber available but can be scarce at remote beaches.",
+        "airport": "Florianopolis Hercilio Luz (FLN)",
+        "trainConnections": ["Flight to Sao Paulo (1.5 hr, ~R$250)", "Bus to Curitiba (5 hr, ~R$80)", "Flight to Porto Alegre (1 hr, ~R$200)"],
+        "language": "Portuguese, some English in tourist areas"
+      }
+    },
+    "iguazu-falls": {
+      "title": "Iguazu Falls",
+      "tagline": "The World's Most Spectacular Waterfalls",
+      "region": "south",
+      "bestMonths": ["Mar", "Apr", "May", "Aug", "Sep", "Oct", "Nov"],
+      "budgetPerDay": { "backpacker": 40, "midRange": 100, "luxury": 280 },
+      "gettingThere": "Fly to Foz do Iguacu Airport (IGU). Taxi or Uber to hotels ~R$30-50 (15 min). National Park bus from city center runs regularly.",
+      "highlights": ["Brazilian side panoramic walkway", "Argentine side upper and lower trails", "Devil's Throat (Garganta do Diabo)", "Bird Park (Parque das Aves)", "Boat ride under the falls", "Itaipu Dam tour", "Triple Frontier landmark", "Moonlit falls walk (full moon nights)"],
+      "essentials": {
+        "gettingAround": "Taxi or Uber between hotels and park. Park bus included with entrance fee. Consider visiting both Brazilian and Argentine sides (bring passport).",
+        "airport": "Foz do Iguacu (IGU)",
+        "trainConnections": ["Flight to Sao Paulo (1.5 hr, ~R$300)", "Flight to Curitiba (1 hr, ~R$250)", "Bus to Curitiba (10 hr, ~R$120)"],
+        "language": "Portuguese and Spanish, some English at tourist sites"
+      }
+    },
+    "brasilia": {
+      "title": "Brasilia",
+      "tagline": "Oscar Niemeyer's Modernist Masterpiece",
+      "region": "central-north",
+      "bestMonths": ["Apr", "May", "Jun", "Jul", "Aug", "Sep"],
+      "budgetPerDay": { "backpacker": 40, "midRange": 95, "luxury": 250 },
+      "gettingThere": "Fly to Brasilia Airport (BSB) — major domestic hub. Uber or taxi to hotel row ~R$30-50 (20 min). Well-connected to all major Brazilian cities.",
+      "highlights": ["Cathedral of Brasilia", "National Congress building", "Planalto Palace", "JK Memorial", "TV Tower panoramic view", "Ponte JK bridge at sunset", "Itamaraty Palace", "Parque da Cidade"],
+      "essentials": {
+        "gettingAround": "City designed for cars — distances are large. Uber essential. Metro limited but connects airport to center. Walking between sights on Esplanada dos Ministerios is possible.",
+        "airport": "Brasilia International (BSB)",
+        "trainConnections": ["Flight to Rio (1.5 hr, ~R$250)", "Flight to Sao Paulo (1.5 hr, ~R$250)", "Bus to Goiania (3 hr, ~R$60)"],
+        "language": "Portuguese, limited English"
+      }
+    },
+    "manaus": {
+      "title": "Manaus",
+      "tagline": "Gateway to the Amazon Rainforest",
+      "region": "central-north",
+      "bestMonths": ["Jun", "Jul", "Aug", "Sep", "Oct", "Nov"],
+      "budgetPerDay": { "backpacker": 45, "midRange": 120, "luxury": 400 },
+      "gettingThere": "Fly to Manaus Airport (MAO). No road connections to most of Brazil — flying is the only practical option. Uber or taxi to center ~R$40 (20 min).",
+      "highlights": ["Amazon Theatre (Teatro Amazonas)", "Meeting of the Waters", "Amazon jungle lodge stays", "Piranha fishing excursion", "Pink river dolphin spotting", "Anavilhanas Archipelago", "Mercado Adolpho Lisboa", "Night safari in the jungle"],
+      "essentials": {
+        "gettingAround": "City center walkable. Uber for wider areas. Jungle tours arranged through lodges or agencies — multi-day recommended. Boat trips along the river.",
+        "airport": "Manaus Eduardo Gomes (MAO)",
+        "trainConnections": ["Flight to Sao Paulo (4 hr, ~R$400)", "Flight to Brasilia (3.5 hr, ~R$350)", "Boat to Belem (5 days, ~R$300)"],
+        "language": "Portuguese, very limited English even in tourist areas"
+      }
+    },
+    "recife": {
+      "title": "Recife",
+      "tagline": "The Venice of Brazil",
+      "region": "northeast",
+      "bestMonths": ["Sep", "Oct", "Nov", "Dec", "Jan"],
+      "budgetPerDay": { "backpacker": 30, "midRange": 80, "luxury": 220 },
+      "gettingThere": "Fly to Recife Airport (REC). Uber or taxi to Boa Viagem ~R$30 (20 min). Direct flights from major Brazilian cities and some European routes.",
+      "highlights": ["Recife Antigo historic quarter", "Marco Zero waterfront", "Olinda historic town (UNESCO)", "Boa Viagem Beach", "Oficina Ceramica Brennand", "Instituto Ricardo Brennand", "Giant Carnival street parties (Feb)", "Praia dos Carneiros day trip"],
+      "essentials": {
+        "gettingAround": "Uber and 99 widely available. Metro connects airport to center. Boa Viagem area walkable. Day trip to Olinda by taxi or bus (30 min).",
+        "airport": "Recife Guararapes (REC)",
+        "trainConnections": ["Flight to Salvador (1.5 hr, ~R$250)", "Bus to Joao Pessoa (2 hr, ~R$40)", "Flight to Fernando de Noronha (1 hr, ~R$600)"],
+        "language": "Portuguese, very limited English"
+      }
+    },
+    "paraty": {
+      "title": "Paraty",
+      "tagline": "Colonial Jewel on the Costa Verde",
+      "region": "southeast",
+      "bestMonths": ["Mar", "Apr", "May", "Jun", "Sep", "Oct", "Nov"],
+      "budgetPerDay": { "backpacker": 35, "midRange": 95, "luxury": 280 },
+      "gettingThere": "No airport — reach by bus from Rio (4.5 hr, ~R$80) or Sao Paulo (5.5 hr, ~R$100). Car rental offers flexibility to explore the coast. Scenic coastal drive along BR-101.",
+      "highlights": ["UNESCO historic center with cobblestone streets", "Boat trip to tropical islands", "Praia do Sono hidden beach", "Cachaca distillery tour", "Saco do Mamangua fjord", "Toboga waterfall natural slide", "FLIP literary festival (Jul)", "Trindade beaches"],
+      "essentials": {
+        "gettingAround": "Historic center is car-free and walkable. Boat trips to beaches and islands. Taxi or rental car for outlying beaches. Bikes rentable for nearby areas.",
+        "airport": "Nearest: Rio de Janeiro (GIG) or Sao Paulo (GRU)",
+        "trainConnections": ["Bus to Rio de Janeiro (4.5 hr, ~R$80)", "Bus to Sao Paulo (5.5 hr, ~R$100)", "Bus to Ubatuba (1.5 hr, ~R$30)"],
+        "language": "Portuguese, some English in tourist businesses"
+      }
+    },
+    "ouro-preto": {
+      "title": "Ouro Preto",
+      "tagline": "Brazil's Baroque Treasure",
+      "region": "southeast",
+      "bestMonths": ["Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"],
+      "budgetPerDay": { "backpacker": 30, "midRange": 75, "luxury": 200 },
+      "gettingThere": "Nearest airport is Belo Horizonte (CNF), then 2-hour bus ride (~R$50). Direct buses from Belo Horizonte bus station run frequently. Scenic mountain road.",
+      "highlights": ["Igreja de Sao Francisco de Assis", "Praca Tiradentes main square", "Museu da Inconfidencia", "Historic gold mines (Mina do Chico Rei)", "Mina da Passagem underground lake", "Baroque church circuit", "Semana Santa Holy Week processions", "Day trip to Mariana"],
+      "essentials": {
+        "gettingAround": "Compact and walkable but extremely hilly — wear sturdy shoes. Streets are steep cobblestone. Taxis for outlying mines and sights.",
+        "airport": "Nearest: Belo Horizonte Confins (CNF)",
+        "trainConnections": ["Bus to Belo Horizonte (2 hr, ~R$50)", "Historic train to Mariana (1 hr, ~R$70)", "Bus to Sao Paulo (8 hr, ~R$140)"],
+        "language": "Portuguese, very limited English"
+      }
+    },
+    "jericoacoara": {
+      "title": "Jericoacoara",
+      "tagline": "Brazil's Barefoot Paradise",
+      "region": "northeast",
+      "bestMonths": ["Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+      "budgetPerDay": { "backpacker": 35, "midRange": 95, "luxury": 300 },
+      "gettingThere": "Fly to Jericoacoara Airport (JJD) or Fortaleza (FOR, then 5-hr transfer). 4WD transfer from Jijoca de Jericoacoara through sand dunes required. Pre-book transfers.",
+      "highlights": ["Sunset from Duna do Por do Sol", "Pedra Furada rock arch", "Lagoa do Paraiso hammock bars", "Lagoa Azul", "Kitesurfing and windsurfing", "Praia do Prea", "Horseback riding on dunes", "Sandy street village charm"],
+      "essentials": {
+        "gettingAround": "Village is car-free with sandy streets — go barefoot. Buggy or 4WD for lagoons and outlying areas. Horse and donkey transport still common.",
+        "airport": "Jericoacoara (JJD) / Fortaleza (FOR)",
+        "trainConnections": ["Transfer to Fortaleza (5 hr, ~R$80)", "Flight Fortaleza to Recife (1.5 hr, ~R$250)", "Flight Fortaleza to Sao Paulo (3.5 hr, ~R$350)"],
+        "language": "Portuguese, limited English, some Italian and French from expats"
+      }
+    },
+    "fernando-de-noronha": {
+      "title": "Fernando de Noronha",
+      "tagline": "Brazil's Marine Paradise",
+      "region": "northeast",
+      "bestMonths": ["Aug", "Sep", "Oct", "Nov", "Dec"],
+      "budgetPerDay": { "backpacker": 100, "midRange": 250, "luxury": 600 },
+      "gettingThere": "Fly from Recife (REC, 1 hr) or Natal (NAT, 1.5 hr). Daily environmental tax (~R$100/day). Limited flights and visitor caps — book well ahead.",
+      "highlights": ["Baia do Sancho (world's best beach)", "Baia dos Porcos & Morro Dois Irmaos", "Snorkeling and diving", "Sea turtle nesting at Praia do Leao", "Forte dos Remedios sunset", "Projeto TAMAR marine conservation", "Mirante do Boldro viewpoint", "Atalaia tidal pools (permit required)"],
+      "essentials": {
+        "gettingAround": "Buggy rental (~R$250/day) is standard. Island is small but hilly. Some beaches require hiking. Electric buggies now available. Reserve Atalaia trail spots online in advance.",
+        "airport": "Fernando de Noronha (SFN)",
+        "trainConnections": ["Flight to Recife (1 hr, ~R$600)", "Flight to Natal (1.5 hr, ~R$600)"],
+        "language": "Portuguese, some English at pousadas"
+      }
+    },
+    "bonito": {
+      "title": "Bonito",
+      "tagline": "Brazil's Ecotourism Capital",
+      "region": "south",
+      "bestMonths": ["Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+      "budgetPerDay": { "backpacker": 50, "midRange": 130, "luxury": 300 },
+      "gettingThere": "Fly to Campo Grande (CGR) then 5-hour bus or rental car. Some direct flights to Bonito Airport (BYO) seasonally. Car rental gives best flexibility.",
+      "highlights": ["Gruta do Lago Azul blue cave", "Rio da Prata snorkeling", "Aquario Natural crystal-clear river", "Rio Sucuri floating", "Abismo Anhumas cave rappelling", "Boca da Onca waterfalls trail", "Buraco das Araras sinkhole", "Estancia Mimosa waterfalls"],
+      "essentials": {
+        "gettingAround": "Car rental recommended — attractions spread across the region. All activities must be booked through licensed agencies (voucher system). Book popular activities days ahead in high season.",
+        "airport": "Bonito (BYO) / Campo Grande (CGR)",
+        "trainConnections": ["Bus to Campo Grande (5 hr, ~R$70)", "Flight Campo Grande to Sao Paulo (1.5 hr, ~R$300)", "Bus to Foz do Iguacu (via Campo Grande, 12 hr total)"],
+        "language": "Portuguese, limited English at tour agencies"
+      }
+    }
+  },
+  "connections": {
+    "rio-sao-paulo": { "mode": "bus/flight", "duration": "6 hr bus / 1 hr flight", "operator": "1001 / LATAM / GOL / Azul", "cost": "~R$120 bus / ~R$250 flight" },
+    "rio-paraty": { "mode": "bus", "duration": "4.5 hours", "operator": "Costa Verde", "cost": "~R$80" },
+    "rio-salvador": { "mode": "flight", "duration": "2.5 hours", "operator": "LATAM / GOL / Azul", "cost": "~R$300" },
+    "sao-paulo-florianopolis": { "mode": "flight/bus", "duration": "1.5 hr flight / 10 hr bus", "operator": "LATAM / GOL / Catarinense", "cost": "~R$250 flight / ~R$150 bus" },
+    "sao-paulo-iguazu": { "mode": "flight", "duration": "1.5 hours", "operator": "LATAM / GOL / Azul", "cost": "~R$300" },
+    "sao-paulo-brasilia": { "mode": "flight", "duration": "1.5 hours", "operator": "LATAM / GOL / Azul", "cost": "~R$250" },
+    "sao-paulo-manaus": { "mode": "flight", "duration": "4 hours", "operator": "LATAM / GOL / Azul", "cost": "~R$400" },
+    "salvador-recife": { "mode": "flight/bus", "duration": "1.5 hr flight / 12 hr bus", "operator": "LATAM / GOL", "cost": "~R$250 flight / ~R$150 bus" },
+    "recife-fernando-de-noronha": { "mode": "flight", "duration": "1 hour", "operator": "Azul / GOL", "cost": "~R$600" },
+    "recife-jericoacoara": { "mode": "flight via Fortaleza", "duration": "3 hr total", "operator": "LATAM / GOL + transfer", "cost": "~R$400" },
+    "florianopolis-bonito": { "mode": "flight via Campo Grande", "duration": "4 hr total", "operator": "Azul / GOL", "cost": "~R$500" },
+    "brasilia-manaus": { "mode": "flight", "duration": "3.5 hours", "operator": "LATAM / GOL / Azul", "cost": "~R$350" },
+    "ouro-preto-rio": { "mode": "bus", "duration": "6 hours via Belo Horizonte", "operator": "Util / Cometa", "cost": "~R$120" }
+  },
+  "travelTips": {
+    "currency": "Brazilian Real (BRL / R$). Cards widely accepted in cities. Carry cash for smaller towns, beach vendors, and street food. ATMs (Banco 24h) available at airports and malls.",
+    "visaFree": "US citizens need an eVisa (apply online, ~$80, valid 10 years). EU, UK, Australia, Canada — visa-free for 90 days. Check current requirements before travel.",
+    "bestOverallMonths": "April to October for most destinations (dry season varies by region). December to March for beaches and Carnival. June to September for Amazon low-water season and Pantanal wildlife.",
+    "winterNote": "Brazil has no harsh winter. Southern regions (Florianopolis, Bonito) are cooler Jun-Aug (10-20C). Northeast stays warm year-round (25-32C). Amazon is hot and humid always.",
+    "simCard": "Buy a Claro, Vivo, or TIM prepaid SIM at any airport for ~R$30-50/month with good 4G/5G coverage in cities. Coverage drops in Amazon and remote beaches.",
+    "transport": "Domestic flights via GOL, LATAM, and Azul connect all major cities. Long-distance buses are comfortable (leito class = reclining beds). Uber and 99 ride-hailing in all cities. Rent a car for coastal and rural exploration."
+  }
+}
