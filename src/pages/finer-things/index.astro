@@ -73,6 +73,26 @@ const topics: TopicSection[] = [
     ],
   },
   {
+    id: 'gear',
+    icon: '🎒',
+    title: 'Gear Worth Packing',
+    gradient: 'linear-gradient(135deg, #1A2332 0%, #059669 100%)',
+    items: [
+      { label: 'DJI Mini 4 Pro Drone', text: 'Rio\'s Cristo Redentor and Sugarloaf from above, the Amazon from 400ft, Iguazu Falls aerial — Brazil is extraordinary drone country. Under 249g with 34-minute flight time. <a href="https://www.amazon.com/dp/B0CFF1SJ3P?tag=discoverbrazil-20" target="_blank" rel="noopener">Check price on Amazon</a>.' },
+      { label: 'Peak Design Travel Tripod', text: 'Compact and lightweight — folds to 39cm and weighs 1.27kg. Perfect for Rio\'s Christ the Redeemer at dawn before the crowds arrive. <a href="https://www.amazon.com/dp/B085BQS6K4?tag=discoverbrazil-20" target="_blank" rel="noopener">Check price on Amazon</a>.' },
+      { label: 'GoPro HERO13', text: 'Waterproof and rugged for Amazon river tours and Iguazu Falls spray — the Macuco Safari boat ride soaks you completely; a GoPro is the right tool. <a href="https://www.amazon.com/dp/B0DCM34GXX?tag=discoverbrazil-20" target="_blank" rel="noopener">Check price on Amazon</a>.' },
+      { label: 'Sony WH-1000XM5 Headphones', text: 'Industry-best noise cancellation for 10–12 hour flights to Brazil from New York, plus Amazon lodge downtime where the jungle noise can be intense at night. <a href="https://www.amazon.com/dp/B09XS7JWHH?tag=discoverbrazil-20" target="_blank" rel="noopener">Check price on Amazon</a>.' },
+      { label: 'Apple AirTag 4-Pack', text: 'One in each bag, one in a jacket pocket. Brazil\'s airport transit — especially Guarulhos in São Paulo — is busy and bag mix-ups happen. <a href="https://www.amazon.com/dp/B0D54JZTHY?tag=discoverbrazil-20" target="_blank" rel="noopener">Check price on Amazon</a>.' },
+      { label: 'Pacsafe Metrosafe LS200', text: 'Rio\'s beaches and São Paulo\'s markets require this level of security awareness. Slash-resistant straps, lockable zippers, and RFID blocking — the practical solution for urban Brazil. <a href="https://www.amazon.com/dp/B017BPMS3I?tag=discoverbrazil-20" target="_blank" rel="noopener">Check price on Amazon</a>.' },
+      { label: 'EPICKA Universal Travel Adapter', text: 'Brazil\'s Type N outlets are unique globally — most generic adapters don\'t include them. The EPICKA covers Type N and every other outlet type with 4 simultaneous ports. <a href="https://www.amazon.com/dp/B078S3M2NX?tag=discoverbrazil-20" target="_blank" rel="noopener">Check price on Amazon</a>.' },
+      { label: 'Anker 735 GaN Charger (65W)', text: 'Three ports (2 USB-C, 1 USB-A), 65W, roughly the size of a large lipstick. Handles drone batteries, laptop, and phone simultaneously. <a href="https://www.amazon.com/dp/B09C5RG6KV?tag=discoverbrazil-20" target="_blank" rel="noopener">Check price on Amazon</a>.' },
+      { label: 'Kindle Paperwhite', text: 'Amazon lodge stays involve a lot of riverboat time — the Kindle Paperwhite is waterproof, glare-free, and holds thousands of books. The ideal Amazon companion. <a href="https://www.amazon.com/dp/B0CFPJYX7P?tag=discoverbrazil-20" target="_blank" rel="noopener">Check price on Amazon</a>.' },
+      { label: 'Sea to Summit Premium Silk Liner', text: 'Jungle lodges vary enormously in bedding quality. A silk liner is insurance against questionable sheets and adds warmth when the AC is cranked. Weighs 100g. <a href="https://www.amazon.com/dp/B0B8QSZY6N?tag=discoverbrazil-20" target="_blank" rel="noopener">Check price on Amazon</a>.' },
+      { label: 'Flypal Inflatable Foot Rest', text: 'The 10–12 hour flights from New York to Brazil are long enough that foot elevation genuinely matters for circulation and arriving rested. <a href="https://www.amazon.com/dp/B074T9CP81?tag=discoverbrazil-20" target="_blank" rel="noopener">Check price on Amazon</a>.' },
+      { label: 'Sockwell Compression Socks', text: 'For long-haul flights to Brazil and the altitude changes if you\'re combining Rio (sea level) with mountain towns. Your legs will thank you. <a href="https://www.amazon.com/dp/B089DRF9WM?tag=discoverbrazil-20" target="_blank" rel="noopener">Check price on Amazon</a>.' },
+    ],
+  },
+  {
     id: 'carnival',
     icon: '🎭',
     title: 'Carnival VIP Experiences',
@@ -223,6 +243,11 @@ const topics: TopicSection[] = [
       </div>
     </div>
   </section>
+
+  <!-- Affiliate Disclosure -->
+  <div class="container-content ft-reveal" style="padding-bottom: 0;">
+    <p class="ft-affiliate-disclosure">Some links on this page are affiliate links — we earn a small commission if you purchase through them, at no extra cost to you. We only recommend gear we personally use. <a href="/legal/affiliate-disclosure/">Full disclosure</a>.</p>
+  </div>
 
   <!-- Bottom CTA -->
   <section class="ft-cta-section ft-reveal">
@@ -702,6 +727,25 @@ const topics: TopicSection[] = [
 
   .ft-protips-card .scott-tips :global(a:hover) {
     text-decoration-color: #FB923C;
+  }
+
+  /* ================================================================
+     AFFILIATE DISCLOSURE
+     ================================================================ */
+  .ft-affiliate-disclosure {
+    font-size: 0.75rem;
+    color: #4A5568;
+    line-height: 1.5;
+    text-align: center;
+    padding: var(--space-4) var(--space-6);
+    background: var(--color-sky);
+    border-radius: 10px;
+    margin-bottom: var(--space-4);
+  }
+
+  .ft-affiliate-disclosure a {
+    color: var(--color-ocean-teal);
+    text-decoration: underline;
   }
 
   /* ================================================================
